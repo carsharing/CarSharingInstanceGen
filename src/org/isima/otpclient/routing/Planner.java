@@ -5,8 +5,10 @@
  */
 package org.isima.otpclient.routing;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -81,7 +83,7 @@ public class Planner {
         }
         fw.close();
         connection.disconnect();
-        Response result = new Response();
+        Response result = new Response(request.getFromNode(), request.getToNode());
         parseXML(streamOutput, result);
         return result;
     }
@@ -93,40 +95,54 @@ public class Planner {
             document = sxb.build(f);
             Element root = document.getRootElement();
             Element plan = root.getChild("plan");
+            if (plan != null) {
+                Element from = plan.getChild("from");
+                Element fromLat = from.getChild("lat");
+                Element fromLon = from.getChild("lon");
+                if (debug) {
+                    System.out.println("from: " + fromLat.getText() + "," + fromLon.getText());
+                }
 
-            Element from = plan.getChild("from");
-            Element fromLat = from.getChild("lat");
-            Element fromLon = from.getChild("lon");
-            if (debug) {
-                System.out.println("from: " + fromLat.getText() + "," + fromLon.getText());
-            }
-            response.setFromLat(fromLat.getText());
-            response.setFromLon(fromLon.getText());
-            Element to = plan.getChild("to");
-            Element toLat = to.getChild("lat");
-            Element toLon = to.getChild("lon");
-            if (debug) {
-                System.out.println("to: " + toLat.getText() + "," + toLon.getText());
-            }
-            response.setToLat(toLat.getText());
-            response.setToLon(toLon.getText());
+                Element to = plan.getChild("to");
+                Element toLat = to.getChild("lat");
+                Element toLon = to.getChild("lon");
+                if (debug) {
+                    System.out.println("to: " + toLat.getText() + "," + toLon.getText());
+                }
 
-            Element itineraries = plan.getChild("itineraries");
-            //System.out.println("itineraries: " + itineraries.getText());
-            Element itinerary = itineraries.getChild("itinerary");
-            //System.out.println("itinerary: " + itinerary.getText());
+                Element itineraries = plan.getChild("itineraries");
+                //System.out.println("itineraries: " + itineraries.getText());
+                Element itinerary = itineraries.getChild("itinerary");
+                //System.out.println("itinerary: " + itinerary.getText());
 
-            Element duration = itinerary.getChild("duration");
-            if (debug) {
-                System.out.println("duration: " + duration.getText());
-            }
-            response.setDuration(Double.parseDouble(duration.getText()));
+                Element duration = itinerary.getChild("duration");
+                if (debug) {
+                    System.out.println("duration: " + duration.getText());
+                }
+                response.setDuration(Double.parseDouble(duration.getText()));
 
-            Element distance = itinerary.getChild("legs").getChild("leg").getChild("distance");
-            if (debug) {
-                System.out.println("distance: " + distance.getText());
+                Element distance = itinerary.getChild("legs").getChild("leg").getChild("distance");
+                if (debug) {
+                    System.out.println("distance: " + distance.getText());
+                }
+                response.setDistance(Double.parseDouble(distance.getText()));
+            } else {
+                response.setDistance(-1);
+                response.setDuration(-1);
+                if (debug) {
+                    System.out.println("Response Problem ------------");
+                    InputStream input = new BufferedInputStream(new FileInputStream(f));
+                    byte[] buffer = new byte[8192];
+
+                    try {
+                        for (int length = 0; (length = input.read(buffer)) != -1;) {
+                            System.out.write(buffer, 0, length);
+                        }
+                    } finally {
+                        input.close();
+                    }
+                }
             }
-            response.setDistance(Double.parseDouble(distance.getText()));
 
         } catch (JDOMException | IOException ex) {
             System.out.println("Erreur traitement XMl-" + ex.getMessage());

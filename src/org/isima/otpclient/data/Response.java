@@ -6,6 +6,7 @@
 package org.isima.otpclient.data;
 
 import java.util.Objects;
+import org.isima.carsharing.elements.Node;
 
 /**
  *
@@ -13,55 +14,40 @@ import java.util.Objects;
  */
 public class Response {
 
-    private transient String fromLat;
-    private transient String fromLon;
-    private transient String toLat;
-    private transient String toLon;
+    private transient Node fromNode;
+    private transient Node toNode;
     private transient double duration;
     private transient double distance;
 
     public Response() {
     }
 
-    public Response(String fromLat, String fromLon, String toLat, String toLon, double duration, double distance) {
-        this.fromLat = fromLat;
-        this.fromLon = fromLon;
-        this.toLat = toLat;
-        this.toLon = toLon;
+    public Response(Node fromNode, Node toNode, double duration, double distance) {
+        this.fromNode = fromNode;
+        this.toNode = toNode;
         this.duration = duration;
         this.distance = distance;
     }
 
-    public String getFromLat() {
-        return fromLat;
+    public Response(Node fromNode, Node toNode) {
+        this.fromNode = fromNode;
+        this.toNode = toNode;
     }
 
-    public void setFromLat(String fromLat) {
-        this.fromLat = fromLat;
+    public Node getFromNode() {
+        return fromNode;
     }
 
-    public String getFromLon() {
-        return fromLon;
+    public void setFromNode(Node fromNode) {
+        this.fromNode = fromNode;
     }
 
-    public void setFromLon(String fromLon) {
-        this.fromLon = fromLon;
+    public Node getToNode() {
+        return toNode;
     }
 
-    public String getToLat() {
-        return toLat;
-    }
-
-    public void setToLat(String toLat) {
-        this.toLat = toLat;
-    }
-
-    public String getToLon() {
-        return toLon;
-    }
-
-    public void setToLon(String toLon) {
-        this.toLon = toLon;
+    public void setToNode(Node toNode) {
+        this.toNode = toNode;
     }
 
     public double getDuration() {
@@ -82,18 +68,16 @@ public class Response {
 
     @Override
     public String toString() {
-        return "Response{" + "fromLat=" + fromLat + ", fromLon=" + fromLon + ", toLat=" + toLat + ", toLon=" + toLon + ", duration=" + duration + ", distance=" + distance + '}';
+        return "Response{" + "fromNode=" + fromNode.getPosition() + ", toNode=" + toNode.getPosition() + ", duration=" + duration + ", distance=" + distance + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 83 * hash + Objects.hashCode(this.fromLat);
-        hash = 83 * hash + Objects.hashCode(this.fromLon);
-        hash = 83 * hash + Objects.hashCode(this.toLat);
-        hash = 83 * hash + Objects.hashCode(this.toLon);
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.duration) ^ (Double.doubleToLongBits(this.duration) >>> 32));
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.distance) ^ (Double.doubleToLongBits(this.distance) >>> 32));
+        int hash = 3;
+        hash = 41 * hash + Objects.hashCode(this.fromNode);
+        hash = 41 * hash + Objects.hashCode(this.toNode);
+        hash = 41 * hash + (int) (Double.doubleToLongBits(this.duration) ^ (Double.doubleToLongBits(this.duration) >>> 32));
+        hash = 41 * hash + (int) (Double.doubleToLongBits(this.distance) ^ (Double.doubleToLongBits(this.distance) >>> 32));
         return hash;
     }
 
@@ -106,22 +90,13 @@ public class Response {
             return false;
         }
         final Response other = (Response) obj;
-        if (!Objects.equals(this.fromLat, other.fromLat)) {
+        if (!Objects.equals(this.fromNode, other.fromNode)) {
             return false;
         }
-        if (!Objects.equals(this.fromLon, other.fromLon)) {
-            return false;
-        }
-        if (!Objects.equals(this.toLat, other.toLat)) {
-            return false;
-        }
-        if (!Objects.equals(this.toLon, other.toLon)) {
+        if (!Objects.equals(this.toNode, other.toNode)) {
             return false;
         }
         if (Double.doubleToLongBits(this.duration) != Double.doubleToLongBits(other.duration)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.distance) != Double.doubleToLongBits(other.distance)) {
             return false;
         }
         return true;

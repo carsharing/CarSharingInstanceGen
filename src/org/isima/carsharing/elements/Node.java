@@ -71,6 +71,15 @@ public class Node {
         this.metadata = metadata;
     }
 
+    public String getPosition() {
+        return this.latitude + "," + this.longitude;
+    }
+
+    @Override
+    public String toString() {
+        return "Node{" + "longitude=" + longitude + ", latitude=" + latitude + ", capacity=" + capacity + ", metadata=" + metadata.toString() + '}';
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;

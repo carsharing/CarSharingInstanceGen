@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package org.isima.carsharing.elements;
 
 import java.util.Objects;
@@ -13,6 +12,7 @@ import java.util.Objects;
  * @author Hicham
  */
 public class NodeMetaData {
+
     private transient String id;
     private transient String timeStamp;
     private transient String name;
@@ -29,9 +29,9 @@ public class NodeMetaData {
         this.network = network;
         this.version = version;
     }
-    
-    public boolean isInfoComplete(){
-        return (this.id!=null)&&(this.name!=null)&&(this.network!=null)&&(this.timeStamp!=null)&&(this.version!=null);
+
+    public boolean isInfoComplete() {
+        return (this.id != null) && (this.name != null) && (this.network != null) && (this.timeStamp != null) && (this.version != null);
     }
 
     public String getId() {
@@ -73,7 +73,12 @@ public class NodeMetaData {
     public void setVersion(String version) {
         this.version = version;
     }
-    
+
+    @Override
+    public String toString() {
+        return "NodeMetaData{" + "id=" + id + ", timeStamp=" + timeStamp + ", name=" + name + ", network=" + network + ", version=" + version + '}';
+    }
+
     @Override
     public int hashCode() {
         int hash = 5;
@@ -112,6 +117,4 @@ public class NodeMetaData {
         return true;
     }
 
-    
-    
 }
