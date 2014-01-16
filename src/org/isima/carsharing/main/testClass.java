@@ -16,6 +16,7 @@ import org.isima.carsharing.elements.Node;
 import org.isima.carsharing.elements.XML.XMLDataCollection;
 import org.isima.carsharing.elements.XML.XMLNodeUtilities;
 import org.isima.carsharing.elements.utilities.NodeUtilities;
+import org.isima.otpclient.data.NodeMatrix;
 import org.isima.otpclient.data.Response;
 import org.isima.otpclient.data.utilities.DataConverterUtility;
 import org.isima.otpclient.request.Request;
@@ -41,9 +42,10 @@ public class testClass {
         Response response;
         List<Response> responseCollection = new LinkedList<>();
         List<Response> badResponse = new LinkedList<>();
-
-        for (Node fromNode : nodeCollection) {
-            request = rqFactory.createRequest(fromNode, fromNode);
+        NodeMatrix nodeMatrix = new NodeMatrix();
+        Node centerNode = new Node(5.04148542881012, 47.32157420570484, 0);
+        for (Node node : nodeCollection) {
+            request = rqFactory.createRequest(centerNode, node);
 
             request.setParameter(Request.DATE, DataConverterUtility.getDateFromGregorianCalendar(new GregorianCalendar()));
             request.setParameter(Request.MODE, "CAR");
@@ -64,6 +66,7 @@ public class testClass {
         }
         System.out.print("\n");
         double previous = -2.0d;
+        //nodeMatrix.setNodes(nodeCollection);
         for (Node fromNode : nodeCollection) {
             System.out.print(fromNode.getPosition());
             for (Node toNode : nodeCollection) {
@@ -98,6 +101,7 @@ public class testClass {
 
                 //System.out.println(response.toString());
                 responseCollection.add(response);
+                nodeMatrix.addValue(fromNode, toNode, response);
                 //}
             }
             previous = -2.0d;

@@ -6,10 +6,11 @@
 
 package org.isima.carsharing.elements.utilities;
 
+
 /**
  *
  * @author Hicham
  */
-public class NodeFactory {
-    
+public class MatrixFactory {
+   
 }
