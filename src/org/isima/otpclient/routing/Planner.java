@@ -127,8 +127,8 @@ public class Planner {
                 }
                 response.setDistance(Double.parseDouble(distance.getText()));
             } else {
-                response.setDistance(-1);
-                response.setDuration(-1);
+                response.setDistance(-1d);
+                response.setDuration(-1d);
                 if (debug) {
                     System.out.println("Response Problem ------------");
                     InputStream input = new BufferedInputStream(new FileInputStream(f));

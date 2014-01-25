@@ -16,13 +16,13 @@ public class Response {
 
     private transient Node fromNode;
     private transient Node toNode;
-    private transient double duration;
-    private transient double distance;
+    private transient Double duration;
+    private transient Double distance;
 
     public Response() {
     }
 
-    public Response(Node fromNode, Node toNode, double duration, double distance) {
+    public Response(Node fromNode, Node toNode, Double duration, Double distance) {
         this.fromNode = fromNode;
         this.toNode = toNode;
         this.duration = duration;
@@ -50,19 +50,19 @@ public class Response {
         this.toNode = toNode;
     }
 
-    public double getDuration() {
+    public Double getDuration() {
         return duration;
     }
 
-    public void setDuration(double duration) {
+    public void setDuration(Double duration) {
         this.duration = duration;
     }
 
-    public double getDistance() {
+    public Double getDistance() {
         return distance;
     }
 
-    public void setDistance(double distance) {
+    public void setDistance(Double distance) {
         this.distance = distance;
     }
 

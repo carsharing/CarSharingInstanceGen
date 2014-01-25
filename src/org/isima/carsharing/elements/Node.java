@@ -15,9 +15,13 @@ public class Node {
 
     private transient Double longitude;
     private transient Double latitude;
+    private transient Integer driverAvailable;
+    private transient Integer parkedCar;
     private transient Integer capacity;
     private transient NodeMetaData metadata;
 
+    //TODO correct setting driverAvailable & parkedCar in XMLtoElement class !
+    
     public Node() {
         this.metadata = new NodeMetaData();
     }
@@ -26,12 +30,16 @@ public class Node {
         this.longitude = longitude;
         this.latitude = latitude;
         this.capacity = capacity;
+        this.driverAvailable = 0;
+        this.parkedCar = this.capacity;
     }
 
     public Node(Double longitude, Double latitude, Integer capacity, NodeMetaData metadata) {
         this.longitude = longitude;
         this.latitude = latitude;
         this.capacity = capacity;
+        this.driverAvailable = 0;
+        this.parkedCar = this.capacity;
         this.metadata = metadata;
     }
 
@@ -61,6 +69,8 @@ public class Node {
 
     public void setCapacity(Integer capacity) {
         this.capacity = capacity;
+        this.setDriverAvailable(0);
+        this.setParkedCar(this.capacity);
     }
 
     public NodeMetaData getMetadata() {
@@ -75,18 +85,36 @@ public class Node {
         return this.latitude + "," + this.longitude;
     }
 
+    public Integer getDriverAvailable() {
+        return driverAvailable;
+    }
+
+    public void setDriverAvailable(Integer driverAvailable) {
+        this.driverAvailable = driverAvailable;
+    }
+
+    public Integer getParkedCar() {
+        return parkedCar;
+    }
+
+    public void setParkedCar(Integer parkedCar) {
+        this.parkedCar = parkedCar;
+    }
+
     @Override
     public String toString() {
-        return "Node{" + "longitude=" + longitude + ", latitude=" + latitude + ", capacity=" + capacity + ", metadata=" + metadata.toString() + '}';
+        return "Node{" + "longitude=" + longitude + ", latitude=" + latitude + ", driverAvailable=" + driverAvailable + ", parkedCar=" + parkedCar + ", capacity=" + capacity + ", metadata=" + metadata + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.longitude);
-        hash = 97 * hash + Objects.hashCode(this.latitude);
-        hash = 97 * hash + Objects.hashCode(this.capacity);
-        hash = 97 * hash + Objects.hashCode(this.metadata);
+        int hash = 3;
+        hash = 53 * hash + Objects.hashCode(this.longitude);
+        hash = 53 * hash + Objects.hashCode(this.latitude);
+        hash = 53 * hash + Objects.hashCode(this.driverAvailable);
+        hash = 53 * hash + Objects.hashCode(this.parkedCar);
+        hash = 53 * hash + Objects.hashCode(this.capacity);
+        hash = 53 * hash + Objects.hashCode(this.metadata);
         return hash;
     }
 
@@ -103,6 +131,12 @@ public class Node {
             return false;
         }
         if (!Objects.equals(this.latitude, other.latitude)) {
+            return false;
+        }
+        if (!Objects.equals(this.driverAvailable, other.driverAvailable)) {
+            return false;
+        }
+        if (!Objects.equals(this.parkedCar, other.parkedCar)) {
             return false;
         }
         if (!Objects.equals(this.capacity, other.capacity)) {

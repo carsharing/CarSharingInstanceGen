@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import org.isima.carsharing.elements.Node;
 
 /**
@@ -81,12 +82,61 @@ public class NodeMatrix {
         return line.values();
     }
     
+    public Collection<Node> getNodes(){
+         return this.data.keySet();
+    }
+    
     public Collection<Response> getColumn(Node node){
         List<Response> result = new LinkedList<>();
         for(Node lineNode:this.data.keySet()){
             Response response = this.data.get(lineNode).get(node);
             result.add(response);
         }
+        return result;
+    }
+    
+    public String toString(){
+        String result = "\t\t\t\t";
+        double previous = -2.0d;
+        Response response;
+        
+        for(Node ligne : data.keySet()){
+            result = result + ligne.getPosition() +"\t\t\t";
+        }
+        result = result + "\n";
+        for(Node ligne : data.keySet()){
+            result = result + ligne.getPosition();
+            for(Node column : data.get(ligne).keySet()){
+                response = data.get(ligne).get(column);
+                
+                if (previous == -2.0d) {
+                    //System.out.print("\t\t" + response.getDistance() + "," + response.getDuration());
+                    result = result + "\t\t" + response.getDistance() + "," + response.getDuration();
+                    previous = response.getDistance();
+                } else if (previous == 0.0d) {
+                    //System.out.print("\t\t\t\t\t" + response.getDistance() + "," + response.getDuration());
+                    result = result + "\t\t\t\t\t" + response.getDistance() + "," + response.getDuration();
+                    previous = response.getDistance();
+                } else if (previous == -1.0d) {
+                    if (response.getDistance() == -1.0d) {
+                        //System.out.print("\t\t\t\t" + response.getDistance() + "," + response.getDuration());
+                        result = result + "\t\t\t\t" + response.getDistance() + "," + response.getDuration();
+                        previous = response.getDistance();
+                    } else {
+                        //System.out.print("\t\t\t\t" + response.getDistance() + "," + response.getDuration());
+                        result = result + "\t\t\t\t" + response.getDistance() + "," + response.getDuration();
+                        previous = response.getDistance();
+                    }
+                } else {
+                    //System.out.print("\t\t" + response.getDistance() + "," + response.getDuration());
+                    result = result + "\t\t" + response.getDistance() + "," + response.getDuration();
+                    previous = response.getDistance();
+                }
+            }
+            previous = -2.0d;
+            result = result + "\n";
+        }
+        
         return result;
     }
 }
