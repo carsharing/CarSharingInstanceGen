@@ -58,7 +58,7 @@ public class GraphFactory {
                 distance.getDistOrFromOrTo().add(graphBuilder.createSimulationDistancesDistanceDist(BigInteger.valueOf(response.getDistance().longValue())));
                 distance.getDistOrFromOrTo().add(graphBuilder.createSimulationDistancesDistanceFrom(response.getFromNode().getMetadata().getId()));
                 distance.getDistOrFromOrTo().add(graphBuilder.createSimulationDistancesDistanceTo(response.getToNode().getMetadata().getId()));
-                distance.getDistOrFromOrTo().add(graphBuilder.createSimulationDistancesDistanceId(BigInteger.valueOf(distanceID++)));
+                distance.getDistOrFromOrTo().add(graphBuilder.createSimulationDistancesDistanceId(BigInteger.valueOf(distanceID)));
 
                 distances.getDistance().add(distance);
             }
@@ -66,7 +66,6 @@ public class GraphFactory {
         simulation.setLocations(locations);
         simulation.setDistances(distances);
         simulation.setRequests(graphBuilder.createSimulationRequests());
-
         return simulation;
 
     }

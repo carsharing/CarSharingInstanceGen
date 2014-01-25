@@ -17,6 +17,7 @@ import javax.xml.bind.Marshaller;
 import org.isima.carsharing.elements.Node;
 import org.isima.carsharing.elements.XML.XMLDataCollection;
 import org.isima.carsharing.elements.XML.XMLNodeUtilities;
+import org.isima.carsharing.elements.utilities.GraphBuilder;
 import org.isima.carsharing.elements.utilities.GraphFactory;
 import org.isima.carsharing.elements.utilities.MatrixFactory;
 import org.isima.carsharing.elements.utilities.NodeUtilities;
@@ -45,7 +46,8 @@ public class NewTestClass {
         GraphFactory graphFactory = new GraphFactory();
         Simulation sim = graphFactory.createCompleteGraph(nodeMatrix);
         
-        JAXBContext jc = JAXBContext.newInstance(Simulation.class);
+        JAXBContext jc = JAXBContext.newInstance(GraphBuilder.class);
+        
         Marshaller marshaller = jc.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         marshaller.marshal(sim,new File("simulation.xml"));

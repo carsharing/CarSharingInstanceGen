@@ -4,13 +4,12 @@
 // Any modifications to this file will be lost upon recompilation of the source schema. 
 // Generated on: 2014.01.15 at 10:43:38 AM CET 
 //
-
 package org.isima.carsharing.elements.utilities;
+
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -20,12 +19,14 @@ import javax.xml.bind.annotation.XmlElementRefs;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for anonymous complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
+ * Java class for anonymous complex type.
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ *
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -141,8 +142,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
@@ -165,11 +166,9 @@ public class Simulation {
 
     /**
      * Gets the value of the isLog property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getIsLog() {
         return isLog;
@@ -177,11 +176,9 @@ public class Simulation {
 
     /**
      * Sets the value of the isLog property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setIsLog(String value) {
         this.isLog = value;
@@ -189,11 +186,9 @@ public class Simulation {
 
     /**
      * Gets the value of the distances property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Simulation.Distances }
-     *     
+     *
+     * @return possible object is {@link Simulation.Distances }
+     *
      */
     public Simulation.Distances getDistances() {
         return distances;
@@ -201,11 +196,9 @@ public class Simulation {
 
     /**
      * Sets the value of the distances property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Simulation.Distances }
-     *     
+     *
+     * @param value allowed object is {@link Simulation.Distances }
+     *
      */
     public void setDistances(Simulation.Distances value) {
         this.distances = value;
@@ -213,11 +206,9 @@ public class Simulation {
 
     /**
      * Gets the value of the locations property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Simulation.Locations }
-     *     
+     *
+     * @return possible object is {@link Simulation.Locations }
+     *
      */
     public Simulation.Locations getLocations() {
         return locations;
@@ -225,11 +216,9 @@ public class Simulation {
 
     /**
      * Sets the value of the locations property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Simulation.Locations }
-     *     
+     *
+     * @param value allowed object is {@link Simulation.Locations }
+     *
      */
     public void setLocations(Simulation.Locations value) {
         this.locations = value;
@@ -237,11 +226,9 @@ public class Simulation {
 
     /**
      * Gets the value of the requests property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Simulation.Requests }
-     *     
+     *
+     * @return possible object is {@link Simulation.Requests }
+     *
      */
     public Simulation.Requests getRequests() {
         return requests;
@@ -249,22 +236,22 @@ public class Simulation {
 
     /**
      * Sets the value of the requests property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Simulation.Requests }
-     *     
+     *
+     * @param value allowed object is {@link Simulation.Requests }
+     *
      */
     public void setRequests(Simulation.Requests value) {
         this.requests = value;
     }
 
-
     /**
-     * <p>Java class for anonymous complex type.
-     * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     * <p>
+     * Java class for anonymous complex type.
+     *
+     * <p>
+     * The following schema fragment specifies the expected content contained
+     * within this class.
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -289,8 +276,8 @@ public class Simulation {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
+     *
+     *
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
@@ -302,25 +289,25 @@ public class Simulation {
 
         /**
          * Gets the value of the distance property.
-         * 
+         *
          * <p>
-         * This accessor method returns a reference to the live list,
-         * not a snapshot. Therefore any modification you make to the
-         * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the distance property.
-         * 
+         * This accessor method returns a reference to the live list, not a
+         * snapshot. Therefore any modification you make to the returned list
+         * will be present inside the JAXB object. This is why there is not a
+         * <CODE>set</CODE> method for the distance property.
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getDistance().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Simulation.Distances.Distance }
-         * 
-         * 
+         *
+         *
          */
         public List<Simulation.Distances.Distance> getDistance() {
             if (distance == null) {
@@ -329,12 +316,14 @@ public class Simulation {
             return this.distance;
         }
 
-
         /**
-         * <p>Java class for anonymous complex type.
-         * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
+         * <p>
+         * Java class for anonymous complex type.
+         *
+         * <p>
+         * The following schema fragment specifies the expected content
+         * contained within this class.
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -349,8 +338,8 @@ public class Simulation {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
@@ -368,28 +357,27 @@ public class Simulation {
 
             /**
              * Gets the value of the distOrFromOrTo property.
-             * 
+             *
              * <p>
-             * This accessor method returns a reference to the live list,
-             * not a snapshot. Therefore any modification you make to the
-             * returned list will be present inside the JAXB object.
-             * This is why there is not a <CODE>set</CODE> method for the distOrFromOrTo property.
-             * 
+             * This accessor method returns a reference to the live list, not a
+             * snapshot. Therefore any modification you make to the returned
+             * list will be present inside the JAXB object. This is why there is
+             * not a <CODE>set</CODE> method for the distOrFromOrTo property.
+             *
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getDistOrFromOrTo().add(newItem);
              * </pre>
-             * 
-             * 
+             *
+             *
              * <p>
-             * Objects of the following type(s) are allowed in the list
-             * {@link JAXBElement }{@code <}{@link String }{@code >}
+             * Objects of the following type(s) are allowed in the list              {@link JAXBElement }{@code <}{@link String }{@code >}
              * {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
              * {@link JAXBElement }{@code <}{@link String }{@code >}
              * {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
-             * 
-             * 
+             *
+             *
              */
             public List<JAXBElement<? extends Serializable>> getDistOrFromOrTo() {
                 if (distOrFromOrTo == null) {
@@ -402,12 +390,14 @@ public class Simulation {
 
     }
 
-
     /**
-     * <p>Java class for anonymous complex type.
-     * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     * <p>
+     * Java class for anonymous complex type.
+     *
+     * <p>
+     * The following schema fragment specifies the expected content contained
+     * within this class.
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -445,8 +435,8 @@ public class Simulation {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
+     *
+     *
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
@@ -458,25 +448,25 @@ public class Simulation {
 
         /**
          * Gets the value of the location property.
-         * 
+         *
          * <p>
-         * This accessor method returns a reference to the live list,
-         * not a snapshot. Therefore any modification you make to the
-         * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the location property.
-         * 
+         * This accessor method returns a reference to the live list, not a
+         * snapshot. Therefore any modification you make to the returned list
+         * will be present inside the JAXB object. This is why there is not a
+         * <CODE>set</CODE> method for the location property.
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getLocation().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Simulation.Locations.Location }
-         * 
-         * 
+         *
+         *
          */
         public List<Simulation.Locations.Location> getLocation() {
             if (location == null) {
@@ -485,12 +475,14 @@ public class Simulation {
             return this.location;
         }
 
-
         /**
-         * <p>Java class for anonymous complex type.
-         * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
+         * <p>
+         * Java class for anonymous complex type.
+         *
+         * <p>
+         * The following schema fragment specifies the expected content
+         * contained within this class.
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -518,8 +510,8 @@ public class Simulation {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
@@ -538,31 +530,32 @@ public class Simulation {
             protected List<JAXBElement<?>> parkedCarOrCapacityOrDriverAvailable;
 
             /**
-             * Gets the value of the parkedCarOrCapacityOrDriverAvailable property.
-             * 
+             * Gets the value of the parkedCarOrCapacityOrDriverAvailable
+             * property.
+             *
              * <p>
-             * This accessor method returns a reference to the live list,
-             * not a snapshot. Therefore any modification you make to the
-             * returned list will be present inside the JAXB object.
-             * This is why there is not a <CODE>set</CODE> method for the parkedCarOrCapacityOrDriverAvailable property.
-             * 
+             * This accessor method returns a reference to the live list, not a
+             * snapshot. Therefore any modification you make to the returned
+             * list will be present inside the JAXB object. This is why there is
+             * not a <CODE>set</CODE> method for the
+             * parkedCarOrCapacityOrDriverAvailable property.
+             *
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getParkedCarOrCapacityOrDriverAvailable().add(newItem);
              * </pre>
-             * 
-             * 
+             *
+             *
              * <p>
-             * Objects of the following type(s) are allowed in the list
-             * {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
+             * Objects of the following type(s) are allowed in the list              {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
              * {@link JAXBElement }{@code <}{@link String }{@code >}
              * {@link JAXBElement }{@code <}{@link String }{@code >}
              * {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
              * {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
              * {@link JAXBElement }{@code <}{@link Simulation.Locations.Location.Position }{@code >}
-             * 
-             * 
+             *
+             *
              */
             public List<JAXBElement<?>> getParkedCarOrCapacityOrDriverAvailable() {
                 if (parkedCarOrCapacityOrDriverAvailable == null) {
@@ -571,12 +564,14 @@ public class Simulation {
                 return this.parkedCarOrCapacityOrDriverAvailable;
             }
 
-
             /**
-             * <p>Java class for anonymous complex type.
-             * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
-             * 
+             * <p>
+             * Java class for anonymous complex type.
+             *
+             * <p>
+             * The following schema fragment specifies the expected content
+             * contained within this class.
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -589,8 +584,8 @@ public class Simulation {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -606,26 +601,26 @@ public class Simulation {
 
                 /**
                  * Gets the value of the xOrY property.
-                 * 
+                 *
                  * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
-                 * returned list will be present inside the JAXB object.
-                 * This is why there is not a <CODE>set</CODE> method for the xOrY property.
-                 * 
+                 * returned list will be present inside the JAXB object. This is
+                 * why there is not a <CODE>set</CODE> method for the xOrY
+                 * property.
+                 *
                  * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getXOrY().add(newItem);
                  * </pre>
-                 * 
-                 * 
+                 *
+                 *
                  * <p>
-                 * Objects of the following type(s) are allowed in the list
+                 * Objects of the following type(s) are allowed in the list                  {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
                  * {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
-                 * {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
-                 * 
-                 * 
+                 *
+                 *
                  */
                 public List<JAXBElement<BigInteger>> getXOrY() {
                     if (xOrY == null) {
@@ -640,12 +635,14 @@ public class Simulation {
 
     }
 
-
     /**
-     * <p>Java class for anonymous complex type.
-     * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     * <p>
+     * Java class for anonymous complex type.
+     *
+     * <p>
+     * The following schema fragment specifies the expected content contained
+     * within this class.
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -689,8 +686,8 @@ public class Simulation {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
+     *
+     *
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
@@ -702,25 +699,25 @@ public class Simulation {
 
         /**
          * Gets the value of the request property.
-         * 
+         *
          * <p>
-         * This accessor method returns a reference to the live list,
-         * not a snapshot. Therefore any modification you make to the
-         * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the request property.
-         * 
+         * This accessor method returns a reference to the live list, not a
+         * snapshot. Therefore any modification you make to the returned list
+         * will be present inside the JAXB object. This is why there is not a
+         * <CODE>set</CODE> method for the request property.
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getRequest().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Simulation.Requests.Request }
-         * 
-         * 
+         *
+         *
          */
         public List<Simulation.Requests.Request> getRequest() {
             if (request == null) {
@@ -729,12 +726,14 @@ public class Simulation {
             return this.request;
         }
 
-
         /**
-         * <p>Java class for anonymous complex type.
-         * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
+         * <p>
+         * Java class for anonymous complex type.
+         *
+         * <p>
+         * The following schema fragment specifies the expected content
+         * contained within this class.
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -768,8 +767,8 @@ public class Simulation {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
@@ -796,23 +795,22 @@ public class Simulation {
 
             /**
              * Gets the value of the idOrTypeOrFrom property.
-             * 
+             *
              * <p>
-             * This accessor method returns a reference to the live list,
-             * not a snapshot. Therefore any modification you make to the
-             * returned list will be present inside the JAXB object.
-             * This is why there is not a <CODE>set</CODE> method for the idOrTypeOrFrom property.
-             * 
+             * This accessor method returns a reference to the live list, not a
+             * snapshot. Therefore any modification you make to the returned
+             * list will be present inside the JAXB object. This is why there is
+             * not a <CODE>set</CODE> method for the idOrTypeOrFrom property.
+             *
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getIdOrTypeOrFrom().add(newItem);
              * </pre>
-             * 
-             * 
+             *
+             *
              * <p>
-             * Objects of the following type(s) are allowed in the list
-             * {@link JAXBElement }{@code <}{@link String }{@code >}
+             * Objects of the following type(s) are allowed in the list              {@link JAXBElement }{@code <}{@link String }{@code >}
              * {@link JAXBElement }{@code <}{@link String }{@code >}
              * {@link JAXBElement }{@code <}{@link String }{@code >}
              * {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
@@ -825,8 +823,8 @@ public class Simulation {
              * {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
              * {@link JAXBElement }{@code <}{@link String }{@code >}
              * {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
-             * 
-             * 
+             *
+             *
              */
             public List<JAXBElement<?>> getIdOrTypeOrFrom() {
                 if (idOrTypeOrFrom == null) {
@@ -835,12 +833,14 @@ public class Simulation {
                 return this.idOrTypeOrFrom;
             }
 
-
             /**
-             * <p>Java class for anonymous complex type.
-             * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
-             * 
+             * <p>
+             * Java class for anonymous complex type.
+             *
+             * <p>
+             * The following schema fragment specifies the expected content
+             * contained within this class.
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -852,8 +852,8 @@ public class Simulation {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -866,11 +866,9 @@ public class Simulation {
 
                 /**
                  * Gets the value of the requestId property.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link BigInteger }
-                 *     
+                 *
+                 * @return possible object is {@link BigInteger }
+                 *
                  */
                 public BigInteger getRequestId() {
                     return requestId;
@@ -878,11 +876,9 @@ public class Simulation {
 
                 /**
                  * Sets the value of the requestId property.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link BigInteger }
-                 *     
+                 *
+                 * @param value allowed object is {@link BigInteger }
+                 *
                  */
                 public void setRequestId(BigInteger value) {
                     this.requestId = value;
