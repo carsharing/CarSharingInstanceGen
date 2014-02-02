@@ -18,6 +18,10 @@ import org.isima.otpclient.data.Response;
 public class GraphFactory {
 
     public Simulation createCompleteGraph(NodeMatrix nodeMatrix) {
+        return this.createGraph(nodeMatrix, true);
+    }
+
+    public Simulation createGraph(NodeMatrix nodeMatrix, boolean complete) {
         Simulation simulation;
         Simulation.Locations locations;
         Simulation.Distances distances;
@@ -51,17 +55,33 @@ public class GraphFactory {
         Simulation.Distances.Distance distance;
         for (Node fromNode : nodeMatrix.getNodes()) {
             for (Node toNode : nodeMatrix.getNodes()) {
-                distanceID++;
                 response = nodeMatrix.getValue(fromNode, toNode);
-                distance = graphBuilder.createSimulationDistancesDistance();
+                if (complete == true) {
+                    distanceID++;
+                    distance = graphBuilder.createSimulationDistancesDistance();
 
-                //TODO : convert in xsd from int to double
-                distance.getDistOrFromOrTo().add(graphBuilder.createSimulationDistancesDistanceDist(BigInteger.valueOf(response.getDistance().longValue())));
-                distance.getDistOrFromOrTo().add(graphBuilder.createSimulationDistancesDistanceFrom(response.getFromNode().getMetadata().getId()));
-                distance.getDistOrFromOrTo().add(graphBuilder.createSimulationDistancesDistanceTo(response.getToNode().getMetadata().getId()));
-                distance.getDistOrFromOrTo().add(graphBuilder.createSimulationDistancesDistanceId(BigInteger.valueOf(distanceID)));
+                    //TODO : convert in xsd from int to double
+                    distance.getDistOrFromOrTo().add(graphBuilder.createSimulationDistancesDistanceDist(BigInteger.valueOf(response.getDistance().longValue())));
+                    distance.getDistOrFromOrTo().add(graphBuilder.createSimulationDistancesDistanceFrom(response.getFromNode().getMetadata().getId()));
+                    distance.getDistOrFromOrTo().add(graphBuilder.createSimulationDistancesDistanceTo(response.getToNode().getMetadata().getId()));
+                    distance.getDistOrFromOrTo().add(graphBuilder.createSimulationDistancesDistanceId(BigInteger.valueOf(distanceID)));
 
-                distances.getDistance().add(distance);
+                    distances.getDistance().add(distance);
+                } else {
+                    if (response.isAlive()) {
+                        distanceID++;
+                        distance = graphBuilder.createSimulationDistancesDistance();
+
+                        //TODO : convert in xsd from int to double
+                        distance.getDistOrFromOrTo().add(graphBuilder.createSimulationDistancesDistanceDist(BigInteger.valueOf(response.getDistance().longValue())));
+                        distance.getDistOrFromOrTo().add(graphBuilder.createSimulationDistancesDistanceFrom(response.getFromNode().getMetadata().getId()));
+                        distance.getDistOrFromOrTo().add(graphBuilder.createSimulationDistancesDistanceTo(response.getToNode().getMetadata().getId()));
+                        distance.getDistOrFromOrTo().add(graphBuilder.createSimulationDistancesDistanceId(BigInteger.valueOf(distanceID)));
+
+                        distances.getDistance().add(distance);
+
+                    }
+                }
             }
         }
         simulation.setLocations(locations);
@@ -135,8 +155,8 @@ public class GraphFactory {
                 break;
             }
         }
-        System.out.println("marked: " + markedPathsNumber + " killed: " + killedPathsNumber + " alive: " + alivePathsNumber);
-        return null;
+        //System.out.println("marked: " + markedPathsNumber + " killed: " + killedPathsNumber + " alive: " + alivePathsNumber);
+        return this.createGraph(nodeMatrix, false);
     }
 
 }

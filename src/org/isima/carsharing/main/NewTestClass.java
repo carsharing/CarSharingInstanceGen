@@ -53,11 +53,8 @@ public class NewTestClass {
         
         GraphFactory graphFactory = new GraphFactory();
         
-        //Create the Incomplete Graph
-        graphFactory.createIncompleteGraph(nodeMatrix);
-        Set<Response> allKilledValues = nodeMatrix.getAllKilledValues();
         //Creating the complete graph
-        Simulation sim = graphFactory.createCompleteGraph(nodeMatrix);
+        Simulation sim = graphFactory.createIncompleteGraph(nodeMatrix);
         //Marshaling graph output
         JAXBContext jc = JAXBContext.newInstance(GraphBuilder.class);
         Marshaller marshaller = jc.createMarshaller();
