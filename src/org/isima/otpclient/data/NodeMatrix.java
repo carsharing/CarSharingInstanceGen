@@ -8,6 +8,7 @@ package org.isima.otpclient.data;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -92,6 +93,28 @@ public class NodeMatrix {
             Response response = this.data.get(lineNode).get(node);
             result.add(response);
         }
+        return result;
+    }
+    
+    public Set<Response> getAllValues(){
+        Set<Response> result = new HashSet<>();
+        Collection<Response> line;
+        for(Node node : this.getNodes()){
+            line = this.getLine(node);
+            result.addAll(line);
+        }
+        return result;
+    }
+    
+    public Set<Response> getAllKilledValues(){
+        Set<Response> result = new HashSet<>();
+        Collection<Response> values = this.getAllValues();
+        for(Response response : values){
+            if(response.isAlive() == false){
+                result.add(response);
+            }
+        }
+        
         return result;
     }
     

@@ -6,6 +6,7 @@
 package org.isima.carsharing.elements.utilities;
 
 import java.math.BigInteger;
+import java.util.Set;
 import org.isima.carsharing.elements.Node;
 import org.isima.otpclient.data.NodeMatrix;
 import org.isima.otpclient.data.Response;
@@ -69,4 +70,73 @@ public class GraphFactory {
         return simulation;
 
     }
+
+    public Simulation createIncompleteGraph(NodeMatrix nodeMatrix) {
+        double firstStepDistance, secondStepDistance, directPathDistance;
+        double firstStepTime, secondStepTime, directPathTime;
+        Response directPath;
+        //At first all paths are alive
+        Set<Response> alivePaths = nodeMatrix.getAllValues();
+        int markedPathsNumber = 0, killedPathsNumber = 0, alivePathsNumber = alivePaths.size();
+        //Get all nodes
+        for (Node originNode : nodeMatrix.getNodes()) {
+            //Get first step time and duration
+            for (Response firstStep : nodeMatrix.getLine(originNode)) {
+                //First step distination must be different from the origin and must be alive
+                if (!firstStep.getToNode().equals(originNode) && firstStep.isAlive()) {
+                    firstStepDistance = firstStep.getDistance();
+                    firstStepTime = firstStep.getDuration();
+                    //Get second step time and duration
+                    for (Response secondStep : nodeMatrix.getLine(firstStep.getToNode())) {
+                        //Second step must start at the firstStep end, its destination must be different from the origin node and must be alive
+                        if (secondStep.getFromNode().equals(firstStep.getToNode()) && !secondStep.getToNode().equals(firstStep.getToNode()) && !secondStep.getToNode().equals(originNode) && secondStep.isAlive()) {
+                            secondStepDistance = secondStep.getDistance();
+                            secondStepTime = secondStep.getDuration();
+
+                            //Get direct path from origin to secondStep end
+                            directPath = nodeMatrix.getValue(originNode, secondStep.getToNode());
+                            directPathDistance = directPath.getDistance();
+                            directPathTime = directPath.getDuration();
+                            //To test the direct path it must be alive and not marqued
+                            if (directPath.isMarqued() == false && directPath.isAlive() == true) {
+                                //Test & marque and eventually kill a path
+                                if (directPathDistance >= firstStepDistance + secondStepDistance) {
+                                    directPath.setAlive(false);
+                                    directPath.setMarqued(true);
+                                    alivePaths.remove(directPath);
+                                    alivePathsNumber = alivePaths.size();
+                                    killedPathsNumber++;
+                                    markedPathsNumber++;
+                                } else if (directPathTime >= firstStepTime + secondStepTime) {
+                                    directPath.setAlive(false);
+                                    directPath.setMarqued(true);
+                                    alivePaths.remove(directPath);
+                                    alivePathsNumber = alivePaths.size();
+                                    killedPathsNumber++;
+                                    markedPathsNumber++;
+                                } else {
+                                    directPath.setMarqued(true);
+                                    markedPathsNumber++;
+                                }
+                            }
+                        } else if (secondStep.getToNode().equals(firstStep)) {
+                            secondStep.setMarqued(true);
+                            markedPathsNumber++;
+                        }
+                    }
+                } else if (firstStep.getToNode().equals(originNode)) {
+                    firstStep.setMarqued(true);
+                    markedPathsNumber++;
+                }
+            }
+
+            if ((markedPathsNumber - killedPathsNumber) == alivePathsNumber) {
+                //All alive paths has been tested so exit the loop
+                break;
+            }
+        }
+        System.out.println("marked: " + markedPathsNumber + " killed: " + killedPathsNumber + " alive: " + alivePathsNumber);
+        return null;
+    }
+
 }

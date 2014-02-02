@@ -18,6 +18,9 @@ public class Response {
     private transient Node toNode;
     private transient Double duration;
     private transient Double distance;
+    
+    private transient boolean alive = true;
+    private transient boolean marqued = false;   
 
     public Response() {
     }
@@ -66,6 +69,22 @@ public class Response {
         this.distance = distance;
     }
 
+    public boolean isAlive() {
+        return alive;
+    }
+
+    public void setAlive(boolean alive) {
+        this.alive = alive;
+    }
+
+    public boolean isMarqued() {
+        return marqued;
+    }
+
+    public void setMarqued(boolean marqued) {
+        this.marqued = marqued;
+    }
+    
     @Override
     public String toString() {
         return "Response{" + "fromNode=" + fromNode.getPosition() + ", toNode=" + toNode.getPosition() + ", duration=" + duration + ", distance=" + distance + '}';
