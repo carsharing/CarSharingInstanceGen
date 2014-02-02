@@ -4,11 +4,13 @@
  * and open the template in the editor.
  */
 
-package org.isima.otpclient.data;
+package org.isima.carsharing.main;
 
 import java.util.LinkedList;
 import org.isima.carsharing.elements.Node;
 import org.isima.carsharing.elements.utilities.GraphFactory;
+import org.isima.otpclient.data.NodeMatrix;
+import org.isima.otpclient.data.Response;
 
 /**
  *
