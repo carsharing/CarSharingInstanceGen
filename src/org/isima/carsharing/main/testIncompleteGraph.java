@@ -8,7 +8,9 @@ package org.isima.carsharing.main;
 
 import java.util.LinkedList;
 import org.isima.carsharing.elements.Node;
+import org.isima.carsharing.elements.NodeMetaData;
 import org.isima.carsharing.elements.utilities.GraphFactory;
+import org.isima.carsharing.elements.utilities.NodeUtilities;
 import org.isima.otpclient.data.NodeMatrix;
 import org.isima.otpclient.data.Response;
 
@@ -20,7 +22,7 @@ import org.isima.otpclient.data.Response;
 /**              ______(2)_______
  *              /                \
  *            (0,0)   (0,1)    (0,2)
- *              x--(1)--y--(1)--z      
+ *              x--(1)--y--(1)--z          16 paths !
  *               \      |      /
  *               (1)   (1)   (1)
  *                 \    |   /
@@ -32,9 +34,13 @@ import org.isima.otpclient.data.Response;
 public class testIncompleteGraph {
     public static void main(String[] args){
         Node nodex = new Node(0d, 0d, 1, null);
+        nodex.setMetadata(new NodeMetaData());
         Node nodey = new Node(0d, 1d, 1, null);
+        nodey.setMetadata(new NodeMetaData());
         Node nodez = new Node(0d, 2d, 1, null);
+        nodez.setMetadata(new NodeMetaData());
         Node nodet = new Node(1d, 0d, 1, null);
+        nodet.setMetadata(new NodeMetaData());
         
         Response responsexx = new Response(nodex, nodex, 0d, 0d);
         Response responseyy = new Response(nodey, nodey, 0d, 0d);
@@ -64,6 +70,9 @@ public class testIncompleteGraph {
         nodes.add(nodez);
         nodes.add(nodet);
         nodeMatrix.setNodes(nodes);
+        
+        NodeUtilities utilities = new NodeUtilities();
+        utilities.setDefaultValues(nodes, true);
         
         nodeMatrix.addValue(nodex, nodex, responsexx);
         nodeMatrix.addValue(nodey, nodey, responseyy);

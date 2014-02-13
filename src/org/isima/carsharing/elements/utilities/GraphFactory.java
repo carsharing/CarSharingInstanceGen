@@ -120,21 +120,24 @@ public class GraphFactory {
                             //To test the direct path it must be alive and not marqued
                             if (directPath.isMarqued() == false && directPath.isAlive() == true) {
                                 //Test & marque and eventually kill a path
-                                if (directPathDistance >= firstStepDistance + secondStepDistance) {
+                                if (directPathDistance + 0 >= firstStepDistance + secondStepDistance) {
                                     directPath.setAlive(false);
                                     directPath.setMarqued(true);
                                     alivePaths.remove(directPath);
                                     alivePathsNumber = alivePaths.size();
                                     killedPathsNumber++;
                                     markedPathsNumber++;
-                                } else if (directPathTime >= firstStepTime + secondStepTime) {
+                                } 
+                                /* Not working woth time for now
+                                else if (directPathTime >= firstStepTime + secondStepTime) {
                                     directPath.setAlive(false);
                                     directPath.setMarqued(true);
                                     alivePaths.remove(directPath);
                                     alivePathsNumber = alivePaths.size();
                                     killedPathsNumber++;
                                     markedPathsNumber++;
-                                } else {
+                                } */
+                                else {
                                     directPath.setMarqued(true);
                                     markedPathsNumber++;
                                 }
@@ -144,9 +147,18 @@ public class GraphFactory {
                             markedPathsNumber++;
                         }
                     }
-                } else if (firstStep.getToNode().equals(originNode)) {
+                } else if (firstStep.getToNode().equals(originNode) && firstStep.isMarqued()==false) {
+//                    firstStep.setMarqued(true);
+//                    markedPathsNumber++;
+                    
+                    
+                    firstStep.setAlive(false);
                     firstStep.setMarqued(true);
+                    alivePaths.remove(firstStep);
+                    alivePathsNumber = alivePaths.size();
+                    killedPathsNumber++;
                     markedPathsNumber++;
+                    
                 }
             }
 
@@ -155,7 +167,7 @@ public class GraphFactory {
                 break;
             }
         }
-        //System.out.println("marked: " + markedPathsNumber + " killed: " + killedPathsNumber + " alive: " + alivePathsNumber);
+        System.out.println("marked: " + markedPathsNumber + " killed: " + killedPathsNumber + " alive: " + alivePathsNumber);
         return this.createGraph(nodeMatrix, false);
     }
 
