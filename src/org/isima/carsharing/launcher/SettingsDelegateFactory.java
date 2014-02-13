@@ -6,7 +6,10 @@
 package org.isima.carsharing.launcher;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.Map;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -14,7 +17,7 @@ import java.util.logging.Level;
  */
 public class SettingsDelegateFactory {
 
-    public CommandLineSettingsDelegate findSettingsdDelegate(String[] args) throws Exception {
+    public SettingsDelegate findSettingsdDelegate(String[] args) throws Exception {
         CommandLineSettingsDelegate settingsdDelegate = new CommandLineSettingsDelegate();
         for (String s : args) {
             if (s.contains(":")) {
@@ -178,10 +181,26 @@ public class SettingsDelegateFactory {
             }
         }
 
+        updateSettingsConfigDelegateAndOverWriteConfigFile(settingsdDelegate);        
         return settingsdDelegate;
     }
     
-    private void updateSettingsConfigDelegateAndOverWriteConfigFile(){
-        
+    private void updateSettingsConfigDelegateAndOverWriteConfigFile(CommandLineSettingsDelegate settingsdDelegate){
+        ConfigFileHandler configFileHandler = new ConfigFileHandler();
+         if(settingsdDelegate.getConfigFile() != null){
+            try {
+                File configFile = settingsdDelegate.getConfigFile();
+                Map<String, Object> readMap = configFileHandler.read(configFile);
+                settingsdDelegate.updateFromConfigFile(readMap);
+            } catch (IOException ex) {
+                Logger.getLogger(SettingsDelegateFactory.class.getName()).log(Level.SEVERE, null, ex);
+            }
+         }
+         
+         settingsdDelegate.updateFromSimpleConfig();
+         
+         if(settingsdDelegate.isOverrideConfigFile()){
+             configFileHandler.overwrite(settingsdDelegate);
+         }
     }
 }

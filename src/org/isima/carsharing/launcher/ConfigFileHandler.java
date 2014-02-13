@@ -8,6 +8,7 @@ package org.isima.carsharing.launcher;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -43,13 +44,27 @@ public class ConfigFileHandler {
     }
 
     public void overwrite(SettingsDelegate settingsDelegate) {
+        Map<String, Object> contructedMap = contructMap(settingsDelegate);
+        FileOutputStream fileOutputStream = null;
+        Properties properties = new Properties();
+        
+        try {
+
+            fileOutputStream = new FileOutputStream(settingsDelegate.getConfigFile());
+            properties.putAll(contructedMap);
+            properties.store(fileOutputStream, null);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ConfigFileHandler.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ConfigFileHandler.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
     private Map<String, Object> contructMap(Properties source) {
         Map<String, Object> result = new HashMap<>();
-        Integer defaultCapacity = Integer.parseInt(source.getProperty("defaultCapacity")); 
-        Integer defaultDriverAvailable = Integer.parseInt(source.getProperty("defaultDriverAvailable")); 
+        Integer defaultCapacity = Integer.parseInt(source.getProperty("defaultCapacity"));
+        Integer defaultDriverAvailable = Integer.parseInt(source.getProperty("defaultDriverAvailable"));
         Integer defaultParkedCar = Integer.parseInt(source.getProperty("defaultParkedCar"));
         String defaultTimeStamp = source.getProperty("defaultTimeStamp");
         String defaultName = source.getProperty("defaultName");
@@ -66,7 +81,7 @@ public class ConfigFileHandler {
         Boolean activateDefaultValues = Boolean.parseBoolean(source.getProperty("activateDefaultValues"));
         Boolean generateCompleteGraph = Boolean.parseBoolean(source.getProperty("generateCompleteGraph"));
         Boolean generateIncompleteGraph = Boolean.parseBoolean(source.getProperty("generateIncompleteGraph"));
-        
+
         result.put("defaultCapacity", defaultCapacity);
         result.put("defaultDriverAvailable", defaultDriverAvailable);
         result.put("defaultParkedCar", defaultParkedCar);
@@ -138,6 +153,30 @@ public class ConfigFileHandler {
             default:
                 return null;
         }
+    }
+
+    private Map<String, Object> contructMap(SettingsDelegate source) {
+        Map<String, Object> result = new HashMap<>();
+        SimpleSettingsDelegate settingsDelegate = new SimpleSettingsDelegate();
+        result.put("defaultCapacity", settingsDelegate.getDefaultCapacity());
+        result.put("defaultDriverAvailable", settingsDelegate.getDefaultDriverAvailable());
+        result.put("defaultParkedCar", settingsDelegate.getDefaultParkedCar());
+        result.put("defaultTimeStamp", settingsDelegate.getDefaultTimeStamp());
+        result.put("defaultName", settingsDelegate.getDefaultName());
+        result.put("defaultNetwork", settingsDelegate.getDefaultNetwork());
+        result.put("defaultVersion", settingsDelegate.getDefaultVersion());
+        result.put("logDirectory", settingsDelegate.getLogDirectory());
+        result.put("logLevel", settingsDelegate.getLogLevel());
+        result.put("inputFile", settingsDelegate.getInputFile());
+        result.put("outputDirectory", settingsDelegate.getOutputDirectory());
+        result.put("configFile", settingsDelegate.getConfigFile());
+        result.put("otpServerURL", settingsDelegate.getOtpServerURL());
+        result.put("overrideConfigFile", settingsDelegate.isOverrideConfigFile());
+        result.put("distanceMargin", settingsDelegate.getDistanceMargin());
+        result.put("activateDefaultValues", settingsDelegate.isActivateDefaultValues());
+        result.put("generateCompleteGraph", settingsDelegate.isGenerateCompleteGraph());
+        result.put("generateIncompleteGraph", settingsDelegate.isGenerateIncompleteGraph());
+        return result;
     }
 
 }

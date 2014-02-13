@@ -7,7 +7,6 @@ package org.isima.carsharing.launcher;
 
 import java.io.File;
 import java.util.Map;
-import java.util.Properties;
 import java.util.logging.Level;
 
 /**
@@ -277,7 +276,79 @@ public class CommandLineSettingsDelegate  implements SettingsDelegate{
     }
     
     public void updateFromSimpleConfig(){
+        SimpleSettingsDelegate settingsDelegate = new SimpleSettingsDelegate();
         
+        if(this.defaultCapacity!=null ){
+            this.defaultCapacity = settingsDelegate.getDefaultCapacity();
+        }
+        
+        if(this.defaultDriverAvailable!=null ){
+            this.defaultDriverAvailable = settingsDelegate.getDefaultDriverAvailable();
+        }
+        
+        if(this.defaultParkedCar !=null ){
+            this.defaultParkedCar = settingsDelegate.getDefaultParkedCar();
+        }
+        
+        if(this.defaultTimeStamp !=null ){
+            this.defaultTimeStamp = settingsDelegate.getDefaultTimeStamp();
+        }
+        
+        if(this.defaultName !=null ){
+            this.defaultName = settingsDelegate.getDefaultName();
+        }
+        
+        if(this.defaultNetwork !=null ){
+            this.defaultNetwork = settingsDelegate.getDefaultNetwork();
+        }
+        
+        if(this.defaultVersion !=null ){
+            this.defaultVersion = settingsDelegate.getDefaultVersion();
+        }
+        
+        if(this.logDirectory !=null ){
+            this.logDirectory = settingsDelegate.getLogDirectory();
+        }
+        
+        if(this.logLevel !=null ){
+            this.logLevel = settingsDelegate.getLogLevel();
+        }
+        
+        if(this.inputFile !=null ){
+            this.inputFile = settingsDelegate.getInputFile();
+        }
+        
+        if(this.outputDirectory !=null ){
+            this.outputDirectory = settingsDelegate.getOutputDirectory();
+        }
+        
+        if(this.configFile !=null ){
+            this.configFile = settingsDelegate.getConfigFile();
+        }
+        
+        if(this.otpServerURL !=null ){
+            this.otpServerURL = settingsDelegate.getOtpServerURL();
+        }
+        
+        if(this.overrideConfigFile !=null ){
+            this.overrideConfigFile = settingsDelegate.isOverrideConfigFile();
+        }
+        
+        if(this.distanceMargin !=null ){
+            this.distanceMargin = settingsDelegate.getDistanceMargin();
+        }
+        
+        if(this.activateDefaultValues !=null ){
+            this.activateDefaultValues = settingsDelegate.isActivateDefaultValues();
+        }
+        
+        if(this.generateCompleteGraph !=null ){
+            this.generateCompleteGraph = settingsDelegate.isGenerateCompleteGraph();
+        }
+        
+        if(this.generateIncompleteGraph !=null ){
+            this.generateIncompleteGraph = settingsDelegate.isGenerateIncompleteGraph();
+        }
     }    
     
 }
