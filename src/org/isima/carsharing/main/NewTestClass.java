@@ -25,6 +25,7 @@ import org.isima.carsharing.elements.utilities.NodeUtilities;
 import org.isima.carsharing.elements.utilities.Simulation;
 import org.isima.carsharing.launcher.CommandLineSettingsDelegate;
 import org.isima.carsharing.launcher.SimpleSettingsDelegate;
+import org.isima.otpclient.data.MatrixUtility;
 import org.isima.otpclient.data.NodeMatrix;
 import org.isima.otpclient.data.Response;
 
@@ -51,6 +52,7 @@ public class NewTestClass {
         //Creating the nodes matrix (and calculating routes)
         MatrixFactory matrixFactory = new MatrixFactory();
         NodeMatrix nodeMatrix = matrixFactory.createNodeMatrix("http://localhost:8080/otp-rest-servlet/plan", nodeCollection);
+        MatrixUtility.correctOneWayPaths(nodeMatrix);
         System.out.println(nodeMatrix.toString());
         
         GraphFactory graphFactory = new GraphFactory();

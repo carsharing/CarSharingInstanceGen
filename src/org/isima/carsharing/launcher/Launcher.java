@@ -23,6 +23,7 @@ import org.isima.carsharing.elements.utilities.MatrixFactory;
 import org.isima.carsharing.elements.utilities.NodeUtilities;
 import org.isima.carsharing.elements.utilities.Simulation;
 import org.isima.carsharing.launcher.logging.LoggingConfiguratorFactory;
+import org.isima.otpclient.data.MatrixUtility;
 import org.isima.otpclient.data.NodeMatrix;
 
 /**
@@ -57,6 +58,7 @@ public class Launcher {
         //Creating the nodes matrix (and calculating routes)
         MatrixFactory matrixFactory = new MatrixFactory();
         NodeMatrix nodeMatrix = matrixFactory.createNodeMatrix(settingsDelegate.getOtpServerURL(), nodeCollection);
+        MatrixUtility.correctOneWayPaths(nodeMatrix);
         System.out.println(nodeMatrix.toString());
         
         //Getting GraphFactory

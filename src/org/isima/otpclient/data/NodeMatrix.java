@@ -78,6 +78,10 @@ public class NodeMatrix {
          }
     }
     
+    public void setValue(Node fromNode,Node toNode,Response value){
+        this.data.get(fromNode).put(toNode, value);
+    }
+    
     public Collection<Response> getLine(Node node){
         Map<Node, Response> line = this.data.get(node);
         return line.values();
