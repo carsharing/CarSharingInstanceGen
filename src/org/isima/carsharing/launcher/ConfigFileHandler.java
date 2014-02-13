@@ -78,7 +78,7 @@ public class ConfigFileHandler {
             Level logLevel = getLvlFromString(source.getProperty("logLevel"));
             File inputFile = getFileFromString(source.getProperty("inputFile"));
             File outputDirectory = getDirectoryFromString(source.getProperty("outputDirectory"));
-            File configFile = getFileFromString(source.getProperty("configFile"));
+            //File configFile = getFileFromString(source.getProperty("configFile"));
             String otpServerURL = source.getProperty("otpServerURL");
             Boolean overrideConfigFile = Boolean.parseBoolean(source.getProperty("overrideConfigFile"));
             Float distanceMargin = Float.parseFloat(source.getProperty("distanceMargin"));
@@ -97,7 +97,7 @@ public class ConfigFileHandler {
             result.put("logLevel", logLevel);
             result.put("inputFile", inputFile);
             result.put("outputDirectory", outputDirectory);
-            result.put("configFile", configFile);
+            //result.put("configFile", configFile);
             result.put("otpServerURL", otpServerURL);
             result.put("overrideConfigFile", overrideConfigFile);
             result.put("distanceMargin", distanceMargin);
@@ -131,7 +131,7 @@ public class ConfigFileHandler {
 
     private File getFileFromString(String path) {
         File out = new File(path);
-        if (out.exists()) {
+        if (Files.exists(Paths.get(out.toURI()))) {
             if (out.isFile()) {
                 return out;
             } else {
@@ -160,9 +160,8 @@ public class ConfigFileHandler {
         }
     }
 
-    private Map<String, String> contructMap(SettingsDelegate source) {
+    private Map<String, String> contructMap(SettingsDelegate settingsDelegate) {
         Map<String, String> result = new HashMap<>();
-        SimpleSettingsDelegate settingsDelegate = new SimpleSettingsDelegate();
         result.put("defaultCapacity", settingsDelegate.getDefaultCapacity().toString());
         result.put("defaultDriverAvailable", settingsDelegate.getDefaultDriverAvailable().toString());
         result.put("defaultParkedCar", settingsDelegate.getDefaultParkedCar().toString());
@@ -174,7 +173,8 @@ public class ConfigFileHandler {
         result.put("logLevel", settingsDelegate.getLogLevel().toString().toLowerCase());
         result.put("inputFile", settingsDelegate.getInputFile().getAbsolutePath());
         result.put("outputDirectory", settingsDelegate.getOutputDirectory().getAbsolutePath());
-        result.put("configFile", settingsDelegate.getConfigFile().getAbsolutePath());
+        //Config file doesn't specify its path
+        //result.put("configFile", settingsDelegate.getConfigFile().getAbsolutePath());
         result.put("otpServerURL", settingsDelegate.getOtpServerURL());
         result.put("overrideConfigFile", settingsDelegate.isOverrideConfigFile().toString());
         result.put("distanceMargin", settingsDelegate.getDistanceMargin().toString());

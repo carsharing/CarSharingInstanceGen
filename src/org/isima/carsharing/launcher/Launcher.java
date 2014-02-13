@@ -31,7 +31,7 @@ import org.isima.otpclient.data.NodeMatrix;
  */
 public class Launcher {
     public static void main(String[] args) throws Exception{
-        //dC:7 dD:1 dP:7 dT:n/a dNm:test dNt:nt dV:n/a Llvl:a serv:localhost oConf:y margin:30 defValues:y completeGraph:y incompleteGraph:y in:"C:\Users\Hicham\Desktop\PFA 3 bis\data\bicycle-rental-dijon.xml" Ldout:log out:out conf:conf.properties serv:"http://localhost:8080/otp-rest-servlet/plan"  oConf:y
+        //dC:7 dD:1 dP:7 dT:n/a dNm:test dNt:nt dV:n/a Llvl:a serv:localhost oConf:y defValues:y completeGraph:y incompleteGraph:y in:"C:\Users\Hicham\Desktop\PFA 3 bis\data\bicycle-rental-dijon.xml" Ldout:log out:out conf:"C:\Users\Hicham\Documents\NetBeansProjects\CarSharing Instance Generator\test\conf.properties" serv:"http://localhost:8080/otp-rest-servlet/plan" 
         SettingsDelegateFactory settingsDelegateFactory = new SettingsDelegateFactory();
         for(String s : args){
             System.out.println(s);

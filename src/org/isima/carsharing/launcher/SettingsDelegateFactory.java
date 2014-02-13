@@ -7,6 +7,8 @@ package org.isima.carsharing.launcher;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -45,7 +47,7 @@ public class SettingsDelegateFactory {
                 } else if (s.substring(0,s.indexOf(":")+1).equals("Ldout:")) {
                     String LdoutPath = s.substring(s.indexOf(":")+1, s.length());
                     File Ldout = new File(LdoutPath);
-                    if (Ldout.exists()) {
+                    if (Files.exists(Paths.get(Ldout.toURI()))) {
                         if (Ldout.isDirectory()) {
                             settingsdDelegate.setLogDirectory(Ldout);
                         } else {
@@ -76,7 +78,7 @@ public class SettingsDelegateFactory {
                 } else if (s.substring(0,s.indexOf(":")+1).equals("in:")) {
                     String inPath = s.substring(s.indexOf(":")+1, s.length());
                     File in = new File(inPath);
-                    if (in.exists()) {
+                    if (Files.exists(Paths.get(in.toURI()))) {
                         if (in.isFile()) {
                             settingsdDelegate.setInputFile(in);
                         } else {                                         
@@ -88,7 +90,7 @@ public class SettingsDelegateFactory {
                 } else if (s.substring(0,s.indexOf(":")+1).equals("out:")) {
                     String outPath = s.substring(s.indexOf(":")+1, s.length());
                     File out = new File(outPath);
-                    if (out.exists()) {
+                    if (Files.exists(Paths.get(out.toURI()))) {
                         if (out.isDirectory()) {
                             settingsdDelegate.setOutputDirectory(out);
                         } else {
@@ -100,7 +102,7 @@ public class SettingsDelegateFactory {
                 } else if (s.substring(0,s.indexOf(":")+1).equals("conf:")) {
                     String confPath = s.substring(s.indexOf(":")+1, s.length());
                     File conf = new File(confPath);
-                    if (conf.exists()) {
+                    if (Files.exists(Paths.get(conf.toURI()))) {
                         if (conf.isFile()) {
                             settingsdDelegate.setConfigFile(conf);
                         } else {                                         
