@@ -6,13 +6,15 @@
 package org.isima.carsharing.launcher;
 
 import java.io.File;
+import java.util.Map;
+import java.util.Properties;
 import java.util.logging.Level;
 
 /**
  *
  * @author Hicham
  */
-public class SettingsdDelegate {
+public class CommandLineSettingsDelegate  implements SettingsDelegate{
 
     //Nodes default values
     private Integer defaultCapacity;// dC ok
@@ -38,6 +40,7 @@ public class SettingsdDelegate {
     private Boolean generateCompleteGraph; // completeGraph (y:n)
     private Boolean generateIncompleteGraph; // incompleteGraph (y:n)
 
+    @Override
     public Integer getDefaultCapacity() {
         return defaultCapacity;
     }
@@ -46,6 +49,7 @@ public class SettingsdDelegate {
         this.defaultCapacity = defaultCapacity;
     }
 
+    @Override
     public Integer getDefaultDriverAvailable() {
         return defaultDriverAvailable;
     }
@@ -54,6 +58,7 @@ public class SettingsdDelegate {
         this.defaultDriverAvailable = defaultDriverAvailable;
     }
 
+    @Override
     public Integer getDefaultParkedCar() {
         return defaultParkedCar;
     }
@@ -62,6 +67,7 @@ public class SettingsdDelegate {
         this.defaultParkedCar = defaultParkedCar;
     }
 
+    @Override
     public String getDefaultTimeStamp() {
         return defaultTimeStamp;
     }
@@ -70,6 +76,7 @@ public class SettingsdDelegate {
         this.defaultTimeStamp = defaultTimeStamp;
     }
 
+    @Override
     public String getDefaultName() {
         return defaultName;
     }
@@ -78,6 +85,7 @@ public class SettingsdDelegate {
         this.defaultName = defaultName;
     }
 
+    @Override
     public String getDefaultNetwork() {
         return defaultNetwork;
     }
@@ -86,6 +94,7 @@ public class SettingsdDelegate {
         this.defaultNetwork = defaultNetwork;
     }
 
+    @Override
     public String getDefaultVersion() {
         return defaultVersion;
     }
@@ -94,6 +103,7 @@ public class SettingsdDelegate {
         this.defaultVersion = defaultVersion;
     }
 
+    @Override
     public File getLogDirectory() {
         return logDirectory;
     }
@@ -102,6 +112,7 @@ public class SettingsdDelegate {
         this.logDirectory = logDirectory;
     }
 
+    @Override
     public Level getLogLevel() {
         return logLevel;
     }
@@ -110,6 +121,7 @@ public class SettingsdDelegate {
         this.logLevel = logLevel;
     }
 
+    @Override
     public File getInputFile() {
         return inputFile;
     }
@@ -118,6 +130,7 @@ public class SettingsdDelegate {
         this.inputFile = inputFile;
     }
 
+    @Override
     public File getOutputDirectory() {
         return outputDirectory;
     }
@@ -126,6 +139,7 @@ public class SettingsdDelegate {
         this.outputDirectory = outputDirectory;
     }
 
+    @Override
     public File getConfigFile() {
         return configFile;
     }
@@ -134,6 +148,7 @@ public class SettingsdDelegate {
         this.configFile = configFile;
     }
 
+    @Override
     public String getOtpServerURL() {
         return otpServerURL;
     }
@@ -142,6 +157,7 @@ public class SettingsdDelegate {
         this.otpServerURL = otpServerURL;
     }
 
+    @Override
     public Boolean isOverrideConfigFile() {
         return overrideConfigFile;
     }
@@ -150,6 +166,7 @@ public class SettingsdDelegate {
         this.overrideConfigFile = overrideConfigFile;
     }
 
+    @Override
     public Float getDistanceMargin() {
         return distanceMargin;
     }
@@ -158,6 +175,7 @@ public class SettingsdDelegate {
         this.distanceMargin = distanceMargin;
     }
 
+    @Override
     public Boolean isActivateDefaultValues() {
         return activateDefaultValues;
     }
@@ -166,6 +184,7 @@ public class SettingsdDelegate {
         this.activateDefaultValues = activateDefaultValues;
     }
 
+    @Override
     public Boolean isGenerateCompleteGraph() {
         return generateCompleteGraph;
     }
@@ -174,6 +193,7 @@ public class SettingsdDelegate {
         this.generateCompleteGraph = generateCompleteGraph;
     }
 
+    @Override
     public Boolean isGenerateIncompleteGraph() {
         return generateIncompleteGraph;
     }
@@ -181,6 +201,83 @@ public class SettingsdDelegate {
     public void setGenerateIncompleteGraph(Boolean generateIncompleteGraph) {
         this.generateIncompleteGraph = generateIncompleteGraph;
     }
-
-
+    
+    public void updateFromConfigFile(Map<String,Object> properties){
+        if(this.defaultCapacity!=null ){
+            this.defaultCapacity = (Integer) properties.get("defaultCapacity");
+        }
+        
+        if(this.defaultDriverAvailable!=null ){
+            this.defaultDriverAvailable = (Integer) properties.get("defaultDriverAvailable");
+        }
+        
+        if(this.defaultParkedCar !=null ){
+            this.defaultParkedCar = (Integer) properties.get("defaultParkedCar");
+        }
+        
+        if(this.defaultTimeStamp !=null ){
+            this.defaultTimeStamp = (String) properties.get("defaultTimeStamp");
+        }
+        
+        if(this.defaultName !=null ){
+            this.defaultName = (String) properties.get("defaultName");
+        }
+        
+        if(this.defaultNetwork !=null ){
+            this.defaultNetwork = (String) properties.get("defaultNetwork");
+        }
+        
+        if(this.defaultVersion !=null ){
+            this.defaultVersion = (String) properties.get("defaultVersion");
+        }
+        
+        if(this.logDirectory !=null ){
+            this.logDirectory = (File) properties.get("logDirectory");
+        }
+        
+        if(this.logLevel !=null ){
+            this.logLevel = (Level) properties.get("logLevel");
+        }
+        
+        if(this.inputFile !=null ){
+            this.inputFile = (File) properties.get("inputFile");
+        }
+        
+        if(this.outputDirectory !=null ){
+            this.outputDirectory = (File) properties.get("outputDirectory");
+        }
+        
+        if(this.configFile !=null ){
+            this.configFile = (File) properties.get("configFile");
+        }
+        
+        if(this.otpServerURL !=null ){
+            this.otpServerURL = (String) properties.get("otpServerURL");
+        }
+        
+        if(this.overrideConfigFile !=null ){
+            this.overrideConfigFile = (Boolean) properties.get("overrideConfigFile");
+        }
+        
+        if(this.distanceMargin !=null ){
+            this.distanceMargin = (Float) properties.get("distanceMargin");
+        }
+        
+        if(this.activateDefaultValues !=null ){
+            this.activateDefaultValues = (Boolean) properties.get("activateDefaultValues");
+        }
+        
+        if(this.generateCompleteGraph !=null ){
+            this.generateCompleteGraph = (Boolean) properties.get("generateCompleteGraph");
+        }
+        
+        if(this.generateIncompleteGraph !=null ){
+            this.generateIncompleteGraph = (Boolean) properties.get("generateIncompleteGraph");
+        }
+    }
+    
+    public void updateFromSimpleConfig(){
+        
+    }    
+    
 }

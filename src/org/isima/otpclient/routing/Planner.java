@@ -85,6 +85,7 @@ public class Planner {
         connection.disconnect();
         Response result = new Response(request.getFromNode(), request.getToNode());
         parseXML(streamOutput, result);
+        streamOutput.deleteOnExit();
         return result;
     }
 

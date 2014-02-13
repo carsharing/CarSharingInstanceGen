@@ -36,12 +36,13 @@ public class Launcher {
         for(String s : args){
             System.out.println(s);
         }
-        SettingsdDelegate settingsdDelegate = settingsDelegateFactory.findSettingsdDelegate(args);
-        LoggingConfiguratorFactory loggingConfiguratorFactory = new LoggingConfiguratorFactory(Logger.getLogger("CarSharing"), settingsdDelegate.getLogLevel(), settingsdDelegate.getLogDirectory());
+        
+        SettingsDelegate settingsDelegate = settingsDelegateFactory.findSettingsdDelegate(args);
+        LoggingConfiguratorFactory loggingConfiguratorFactory = new LoggingConfiguratorFactory(Logger.getLogger("CarSharing"), settingsDelegate.getLogLevel(), settingsDelegate.getLogDirectory());
         loggingConfiguratorFactory.applySimpleLoggingConfig();
         loggingConfiguratorFactory.applyXMLLoggingConfig();
         
-        XMLDataCollection dataCollected = XMLNodeUtilities.unmarshal(settingsdDelegate.getInputFile());
+        XMLDataCollection dataCollected = XMLNodeUtilities.unmarshal(settingsDelegate.getInputFile());
         List<Node> nodeCollection = new LinkedList<>();
         XMLNodeUtilities.XMLtoElements(dataCollected, nodeCollection);
         
@@ -51,11 +52,11 @@ public class Launcher {
         //Test only node's info
         Collection<Node> incompleteNodes1 = utility.getIncompleteNodes(nodeCollection, false);
         //Set default values for incomplete node's info and metadata
-        utility.setDefaultValues(incompleteNodes, settingsdDelegate,true);
+        utility.setDefaultValues(incompleteNodes, settingsDelegate,true);
         
         //Creating the nodes matrix (and calculating routes)
         MatrixFactory matrixFactory = new MatrixFactory();
-        NodeMatrix nodeMatrix = matrixFactory.createNodeMatrix(settingsdDelegate.getOtpServerURL(), nodeCollection);
+        NodeMatrix nodeMatrix = matrixFactory.createNodeMatrix(settingsDelegate.getOtpServerURL(), nodeCollection);
         System.out.println(nodeMatrix.toString());
         
         //Getting GraphFactory
@@ -66,13 +67,13 @@ public class Launcher {
         Marshaller marshaller = jc.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         
-        if(settingsdDelegate.isGenerateCompleteGraph()){
+        if(settingsDelegate.isGenerateCompleteGraph()){
             Simulation sim = graphFactory.createCompleteGraph(nodeMatrix);
-            marshaller.marshal(sim,new File(settingsdDelegate.getOutputDirectory().getAbsolutePath()+File.separator+"completeGraph.xml"));
+            marshaller.marshal(sim,new File(settingsDelegate.getOutputDirectory().getAbsolutePath()+File.separator+"completeGraph.xml"));
         }
-        if(settingsdDelegate.isGenerateIncompleteGraph()){
+        if(settingsDelegate.isGenerateIncompleteGraph()){
             Simulation sim = graphFactory.createIncompleteGraph(nodeMatrix);
-            marshaller.marshal(sim,new File(settingsdDelegate.getOutputDirectory().getAbsolutePath()+File.separator+"incompleteGraph.xml"));
+            marshaller.marshal(sim,new File(settingsDelegate.getOutputDirectory().getAbsolutePath()+File.separator+"incompleteGraph.xml"));
         }
         
         //TODO business code

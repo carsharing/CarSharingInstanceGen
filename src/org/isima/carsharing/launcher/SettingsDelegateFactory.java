@@ -14,8 +14,8 @@ import java.util.logging.Level;
  */
 public class SettingsDelegateFactory {
 
-    public SettingsdDelegate findSettingsdDelegate(String[] args) throws Exception {
-        SettingsdDelegate settingsdDelegate = new SettingsdDelegate();
+    public CommandLineSettingsDelegate findSettingsdDelegate(String[] args) throws Exception {
+        CommandLineSettingsDelegate settingsdDelegate = new CommandLineSettingsDelegate();
         for (String s : args) {
             if (s.contains(":")) {
                 if (s.substring(0,s.indexOf(":")+1).equals("dC:")) {
@@ -81,16 +81,11 @@ public class SettingsDelegateFactory {
                     if (in.exists()) {
                         if (in.isFile()) {
                             settingsdDelegate.setInputFile(in);
-                        } else {
+                        } else {                                         
                             //Error
                         }
                     } else {
-                        boolean createFileStatus = in.createNewFile();
-                        if (createFileStatus == false) {
-                            //error
-                        } else {
-                            settingsdDelegate.setInputFile(in);
-                        }
+                        //Error
                     }
                 } else if (s.substring(0,s.indexOf(":")+1).equals("out:")) {
                     String outPath = s.substring(s.indexOf(":")+1, s.length());
@@ -115,17 +110,10 @@ public class SettingsDelegateFactory {
                     if (conf.exists()) {
                         if (conf.isFile()) {
                             settingsdDelegate.setConfigFile(conf);
-                        } else {
+                        } else {                                         
                             //Error
                         }
-                    } else {
-                        boolean createFileStatus = conf.createNewFile();
-                        if (createFileStatus == false) {
-                            //error
-                        } else {
-                            settingsdDelegate.setConfigFile(conf);
-                        }
-                    }
+                    } 
                 } else if (s.substring(0,s.indexOf(":")+1).equals("serv:")) {
                     String serv = s.substring(s.indexOf(":")+1, s.length());
                     settingsdDelegate.setOtpServerURL(serv);
@@ -191,5 +179,9 @@ public class SettingsDelegateFactory {
         }
 
         return settingsdDelegate;
+    }
+    
+    private void updateSettingsConfigDelegateAndOverWriteConfigFile(){
+        
     }
 }
