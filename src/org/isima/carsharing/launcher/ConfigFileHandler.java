@@ -10,6 +10,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -108,7 +110,7 @@ public class ConfigFileHandler {
 
     private File getDirectoryFromString(String path) {
         File out = new File(path);
-        if (out.exists()) {
+        if (Files.exists(Paths.get(out.toURI()))) {
             if (out.isDirectory()) {
                 return out;
             } else {
@@ -168,11 +170,11 @@ public class ConfigFileHandler {
         result.put("defaultName", settingsDelegate.getDefaultName());
         result.put("defaultNetwork", settingsDelegate.getDefaultNetwork());
         result.put("defaultVersion", settingsDelegate.getDefaultVersion());
-        result.put("logDirectory", "\""+settingsDelegate.getLogDirectory().getAbsolutePath()+"\"");
+        result.put("logDirectory", settingsDelegate.getLogDirectory().getAbsolutePath());
         result.put("logLevel", settingsDelegate.getLogLevel().toString().toLowerCase());
-        result.put("inputFile", "\""+settingsDelegate.getInputFile().getAbsolutePath()+"\"");
-        result.put("outputDirectory", "\""+settingsDelegate.getOutputDirectory().getAbsolutePath()+"\"");
-        result.put("configFile", "\""+settingsDelegate.getConfigFile().getAbsolutePath()+"\"");
+        result.put("inputFile", settingsDelegate.getInputFile().getAbsolutePath());
+        result.put("outputDirectory", settingsDelegate.getOutputDirectory().getAbsolutePath());
+        result.put("configFile", settingsDelegate.getConfigFile().getAbsolutePath());
         result.put("otpServerURL", settingsDelegate.getOtpServerURL());
         result.put("overrideConfigFile", settingsDelegate.isOverrideConfigFile().toString());
         result.put("distanceMargin", settingsDelegate.getDistanceMargin().toString());
