@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 import org.isima.carsharing.elements.Node;
+import org.isima.carsharing.launcher.SettingsdDelegate;
 
 /**
  *
@@ -48,40 +49,36 @@ public class NodeUtilities {
         return (incompleteNodes.isEmpty()) ? null : incompleteNodes;
     }
 
-    public Node setDefaultValues(Node node, boolean metaDataTest) {
+    public Node setDefaultValues(Node node, SettingsdDelegate settingsdDelegate,boolean metaDataTest) {
         if (node.getCapacity() == null) {
-            node.setCapacity(defaultCapacity);
+            node.setCapacity(settingsdDelegate.getDefaultCapacity());
         }
         if (node.getDriverAvailable() == null) {
-            node.setDriverAvailable(defaultDriverAvailable);
+            node.setDriverAvailable(settingsdDelegate.getDefaultDriverAvailable());
         }
         if (node.getParkedCar() == null) {
-            if (node.getCapacity() != null) {
-                node.setParkedCar(node.getCapacity());
-            } else {
-                node.setParkedCar(defaultParkedCar);
-            }
+            node.setParkedCar(settingsdDelegate.getDefaultParkedCar());
         }
         if (metaDataTest) {
             if(node.getMetadata().getName()==null){
-                node.getMetadata().setName(defaultName);
+                node.getMetadata().setName(settingsdDelegate.getDefaultName());
             }
             if(node.getMetadata().getNetwork()==null){
-                node.getMetadata().setNetwork(defaultNetwork);
+                node.getMetadata().setNetwork(settingsdDelegate.getDefaultNetwork());
             }
             if(node.getMetadata().getTimeStamp()==null){
-                node.getMetadata().setTimeStamp(defaultTimeStamp);
+                node.getMetadata().setTimeStamp(settingsdDelegate.getDefaultTimeStamp());
             }
             if(node.getMetadata().getVersion()==null){
-                node.getMetadata().setVersion(defaultVersion);
+                node.getMetadata().setVersion(settingsdDelegate.getDefaultVersion());
             }
         }
         return node;
     }
     
-    public Collection<Node> setDefaultValues(Collection<Node> nodes, boolean metaDataTest) {
+    public Collection<Node> setDefaultValues(Collection<Node> nodes, SettingsdDelegate settingsdDelegate,boolean metaDataTest) {
         for(Node node : nodes){
-            setDefaultValues(node, metaDataTest);
+            setDefaultValues(node, settingsdDelegate,metaDataTest);
         }
         return nodes;
     }

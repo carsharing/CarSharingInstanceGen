@@ -23,6 +23,7 @@ import org.isima.carsharing.elements.utilities.GraphFactory;
 import org.isima.carsharing.elements.utilities.MatrixFactory;
 import org.isima.carsharing.elements.utilities.NodeUtilities;
 import org.isima.carsharing.elements.utilities.Simulation;
+import org.isima.carsharing.launcher.SettingsdDelegate;
 import org.isima.otpclient.data.NodeMatrix;
 import org.isima.otpclient.data.Response;
 
@@ -44,7 +45,7 @@ public class NewTestClass {
         //Test only node's info
         Collection<Node> incompleteNodes1 = utility.getIncompleteNodes(nodeCollection, false);
         //Set default values for incomplete node's info and metadata
-        utility.setDefaultValues(incompleteNodes, true);
+        utility.setDefaultValues(incompleteNodes, new SettingsdDelegate(),true);
 
         //Creating the nodes matrix (and calculating routes)
         MatrixFactory matrixFactory = new MatrixFactory();

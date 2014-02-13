@@ -8,15 +8,15 @@ import java.util.logging.Logger;
 import java.util.logging.XMLFormatter;
 
 public class XMLLoggingConfig implements LoggingConfigurator{
-	private static final String LOG_FILE_PATH = "log"+File.separator+"xml"+File.separator;
+	private static String LOG_FILE_PATH = File.separator+"xml"+File.separator;
 	
 	@Override
-	public void setup(Logger logger,Level lvl) {
+	public void setup(Logger logger,Level lvl,File rootDirectory) {
 		try {				
 			//Getting the file handler
-			File f = new File(LOG_FILE_PATH+logger.getName().replace(".", "_")+".logs.xml");
+			File f = new File(rootDirectory.getAbsolutePath()+File.separator+LOG_FILE_PATH+logger.getName().replace(".", "_")+".logs.xml");
 			f.createNewFile();
-			FileHandler outputFileHandler = new FileHandler(LOG_FILE_PATH+logger.getName().replace(".", "_")+".logs.xml");
+			FileHandler outputFileHandler = new FileHandler(rootDirectory.getAbsolutePath()+File.separator+LOG_FILE_PATH+logger.getName().replace(".", "_")+".logs.xml");
 			
 			//Setting the formater to XMLFormatter
 			outputFileHandler.setFormatter(new XMLFormatter());

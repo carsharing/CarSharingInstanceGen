@@ -8,47 +8,38 @@ public class LoggingConfiguratorFactory {
 	
 	private Level level;
 	private Logger logger;
+        private File rootDirectory;
 	
-	public LoggingConfiguratorFactory(Logger log,Level lvl){			
+	public LoggingConfiguratorFactory(Logger log,Level lvl,File rootDirectory){			
 	    this.logger = log;
 	    log.setLevel(lvl);
 	    this.logger.setLevel(lvl);
-		this.level = lvl;
-		
+            this.level = lvl;
+            this.rootDirectory = rootDirectory;
+                
+            deleteRecusiveDirectory(this.rootDirectory );
 
-		File level0 = new File("log");
-		if(!level0.exists()){
-			level0.mkdir();
-		}else{
-			if(level0.isDirectory()){
-				deleteRecusiveDirectory(level0);
-				level0.mkdir();
-			}else{
-				//log is an exisiting file .... what to do ?
-				//FIXME do some logique and don't let logs carsh after this
-			}
-		}
-		File level11 = new File("log"+File.separator+"xml");
-		if(!level11.exists()){
-			level11.mkdir();
-		}
-		
-		File level10 = new File("log"+File.separator+"txt");
-		if(!level10.exists()){
-			level10.mkdir();
-		}
+            File level11 = new File(this.rootDirectory.getAbsolutePath()+File.separator+"xml");
+            if(!level11.exists()){
+                    level11.mkdirs();
+            }
+
+            File level10 = new File(this.rootDirectory .getAbsolutePath()+File.separator+"txt");
+            if(!level10.exists()){
+                    level10.mkdirs();
+            }
 		
 	}
 	
 	public XMLLoggingConfig applyXMLLoggingConfig(){
 		XMLLoggingConfig xmlLoggingConfig = new XMLLoggingConfig();
-		xmlLoggingConfig.setup(logger,level);
+		xmlLoggingConfig.setup(logger,level,this.rootDirectory);
 		return xmlLoggingConfig;
 	}
 	
 	public SimpleLoggingConfig applySimpleLoggingConfig(){
 		SimpleLoggingConfig simpleLoggingConfig = new SimpleLoggingConfig();
-		simpleLoggingConfig.setup(logger,level);
+		simpleLoggingConfig.setup(logger,level,this.rootDirectory);
 		return simpleLoggingConfig;
 	}
 	

@@ -8,15 +8,15 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 public class SimpleLoggingConfig implements LoggingConfigurator{
-	private static final String LOG_FILE_PATH = "log"+File.separator+"txt"+File.separator;
+	private static final String LOG_FILE_PATH = File.separator+"txt"+File.separator;
 	
 	@Override
-	public void setup(Logger logger,Level lvl) {
+	public void setup(Logger logger,Level lvl,File rootDirectory) {
 		try {			
 			//Getting the file handler
-			File f = new File(LOG_FILE_PATH+logger.getName().replace(".", "_")+".logs.txt");
+			File f = new File(rootDirectory.getAbsolutePath()+File.separator+LOG_FILE_PATH+logger.getName().replace(".", "_")+".logs.txt");
 			f.createNewFile();
-			FileHandler outputFileHandler = new FileHandler(LOG_FILE_PATH+logger.getName().replace(".", "_")+".logs.txt");
+			FileHandler outputFileHandler = new FileHandler(rootDirectory.getAbsolutePath()+File.separator+LOG_FILE_PATH+logger.getName().replace(".", "_")+".logs.txt");
 			
 			//Setting the formater to SimpleFormatter
 			outputFileHandler.setFormatter(new SimpleFormatter());
