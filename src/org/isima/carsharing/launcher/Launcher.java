@@ -72,7 +72,7 @@ public class Launcher {
             marshaller.marshal(sim,new File(settingsDelegate.getOutputDirectory().getAbsolutePath()+File.separator+"completeGraph.xml"));
         }
         if(settingsDelegate.isGenerateIncompleteGraph()){
-            Simulation sim = graphFactory.createIncompleteGraph(nodeMatrix);
+            Simulation sim = graphFactory.createIncompleteGraph(nodeMatrix,settingsDelegate.getDistanceMargin());
             marshaller.marshal(sim,new File(settingsDelegate.getOutputDirectory().getAbsolutePath()+File.separator+"incompleteGraph.xml"));
         }
         

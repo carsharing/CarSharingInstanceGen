@@ -24,6 +24,7 @@ import org.isima.carsharing.elements.utilities.MatrixFactory;
 import org.isima.carsharing.elements.utilities.NodeUtilities;
 import org.isima.carsharing.elements.utilities.Simulation;
 import org.isima.carsharing.launcher.CommandLineSettingsDelegate;
+import org.isima.carsharing.launcher.SimpleSettingsDelegate;
 import org.isima.otpclient.data.NodeMatrix;
 import org.isima.otpclient.data.Response;
 
@@ -45,7 +46,7 @@ public class NewTestClass {
         //Test only node's info
         Collection<Node> incompleteNodes1 = utility.getIncompleteNodes(nodeCollection, false);
         //Set default values for incomplete node's info and metadata
-        utility.setDefaultValues(incompleteNodes, new CommandLineSettingsDelegate(),true);
+        utility.setDefaultValues(incompleteNodes, new SimpleSettingsDelegate(),true);
 
         //Creating the nodes matrix (and calculating routes)
         MatrixFactory matrixFactory = new MatrixFactory();
@@ -55,7 +56,7 @@ public class NewTestClass {
         GraphFactory graphFactory = new GraphFactory();
         
         //Creating the complete graph
-        Simulation sim = graphFactory.createIncompleteGraph(nodeMatrix);
+        Simulation sim = graphFactory.createIncompleteGraph(nodeMatrix,60f);
         //Marshaling graph output
         JAXBContext jc = JAXBContext.newInstance(GraphBuilder.class);
         Marshaller marshaller = jc.createMarshaller();

@@ -44,10 +44,10 @@ public class ConfigFileHandler {
     }
 
     public void overwrite(SettingsDelegate settingsDelegate) {
-        Map<String, Object> contructedMap = contructMap(settingsDelegate);
+        Map<String, String> contructedMap = contructMap(settingsDelegate);
         FileOutputStream fileOutputStream = null;
         Properties properties = new Properties();
-        
+
         try {
 
             fileOutputStream = new FileOutputStream(settingsDelegate.getConfigFile());
@@ -62,44 +62,47 @@ public class ConfigFileHandler {
     }
 
     private Map<String, Object> contructMap(Properties source) {
-        Map<String, Object> result = new HashMap<>();
-        Integer defaultCapacity = Integer.parseInt(source.getProperty("defaultCapacity"));
-        Integer defaultDriverAvailable = Integer.parseInt(source.getProperty("defaultDriverAvailable"));
-        Integer defaultParkedCar = Integer.parseInt(source.getProperty("defaultParkedCar"));
-        String defaultTimeStamp = source.getProperty("defaultTimeStamp");
-        String defaultName = source.getProperty("defaultName");
-        String defaultNetwork = source.getProperty("defaultNetwork");
-        String defaultVersion = source.getProperty("defaultVersion");
-        File logDirectory = getDirectoryFromString(source.getProperty("logDirectory"));
-        Level logLevel = getLvlFromString(source.getProperty("logLevel"));
-        File inputFile = getFileFromString(source.getProperty("inputFile"));
-        File outputDirectory = getDirectoryFromString(source.getProperty("outputDirectory"));
-        File configFile = getFileFromString(source.getProperty("configFile"));
-        String otpServerURL = source.getProperty("otpServerURL");
-        Boolean overrideConfigFile = Boolean.parseBoolean(source.getProperty("overrideConfigFile"));
-        Float distanceMargin = Float.parseFloat(source.getProperty("distanceMargin"));
-        Boolean activateDefaultValues = Boolean.parseBoolean(source.getProperty("activateDefaultValues"));
-        Boolean generateCompleteGraph = Boolean.parseBoolean(source.getProperty("generateCompleteGraph"));
-        Boolean generateIncompleteGraph = Boolean.parseBoolean(source.getProperty("generateIncompleteGraph"));
+        Map<String, Object> result = null;
+        if (!source.isEmpty()) {
+            result = new HashMap<>();
+            Integer defaultCapacity = Integer.parseInt(source.getProperty("defaultCapacity"));
+            Integer defaultDriverAvailable = Integer.parseInt(source.getProperty("defaultDriverAvailable"));
+            Integer defaultParkedCar = Integer.parseInt(source.getProperty("defaultParkedCar"));
+            String defaultTimeStamp = source.getProperty("defaultTimeStamp");
+            String defaultName = source.getProperty("defaultName");
+            String defaultNetwork = source.getProperty("defaultNetwork");
+            String defaultVersion = source.getProperty("defaultVersion");
+            File logDirectory = getDirectoryFromString(source.getProperty("logDirectory"));
+            Level logLevel = getLvlFromString(source.getProperty("logLevel"));
+            File inputFile = getFileFromString(source.getProperty("inputFile"));
+            File outputDirectory = getDirectoryFromString(source.getProperty("outputDirectory"));
+            File configFile = getFileFromString(source.getProperty("configFile"));
+            String otpServerURL = source.getProperty("otpServerURL");
+            Boolean overrideConfigFile = Boolean.parseBoolean(source.getProperty("overrideConfigFile"));
+            Float distanceMargin = Float.parseFloat(source.getProperty("distanceMargin"));
+            Boolean activateDefaultValues = Boolean.parseBoolean(source.getProperty("activateDefaultValues"));
+            Boolean generateCompleteGraph = Boolean.parseBoolean(source.getProperty("generateCompleteGraph"));
+            Boolean generateIncompleteGraph = Boolean.parseBoolean(source.getProperty("generateIncompleteGraph"));
 
-        result.put("defaultCapacity", defaultCapacity);
-        result.put("defaultDriverAvailable", defaultDriverAvailable);
-        result.put("defaultParkedCar", defaultParkedCar);
-        result.put("defaultTimeStamp", defaultTimeStamp);
-        result.put("defaultName", defaultName);
-        result.put("defaultNetwork", defaultNetwork);
-        result.put("defaultVersion", defaultVersion);
-        result.put("logDirectory", logDirectory);
-        result.put("logLevel", logLevel);
-        result.put("inputFile", inputFile);
-        result.put("outputDirectory", outputDirectory);
-        result.put("configFile", configFile);
-        result.put("otpServerURL", otpServerURL);
-        result.put("overrideConfigFile", overrideConfigFile);
-        result.put("distanceMargin", distanceMargin);
-        result.put("activateDefaultValues", activateDefaultValues);
-        result.put("generateCompleteGraph", generateCompleteGraph);
-        result.put("generateIncompleteGraph", generateIncompleteGraph);
+            result.put("defaultCapacity", defaultCapacity);
+            result.put("defaultDriverAvailable", defaultDriverAvailable);
+            result.put("defaultParkedCar", defaultParkedCar);
+            result.put("defaultTimeStamp", defaultTimeStamp);
+            result.put("defaultName", defaultName);
+            result.put("defaultNetwork", defaultNetwork);
+            result.put("defaultVersion", defaultVersion);
+            result.put("logDirectory", logDirectory);
+            result.put("logLevel", logLevel);
+            result.put("inputFile", inputFile);
+            result.put("outputDirectory", outputDirectory);
+            result.put("configFile", configFile);
+            result.put("otpServerURL", otpServerURL);
+            result.put("overrideConfigFile", overrideConfigFile);
+            result.put("distanceMargin", distanceMargin);
+            result.put("activateDefaultValues", activateDefaultValues);
+            result.put("generateCompleteGraph", generateCompleteGraph);
+            result.put("generateIncompleteGraph", generateIncompleteGraph);
+        }
         return result;
     }
 
@@ -155,27 +158,27 @@ public class ConfigFileHandler {
         }
     }
 
-    private Map<String, Object> contructMap(SettingsDelegate source) {
-        Map<String, Object> result = new HashMap<>();
+    private Map<String, String> contructMap(SettingsDelegate source) {
+        Map<String, String> result = new HashMap<>();
         SimpleSettingsDelegate settingsDelegate = new SimpleSettingsDelegate();
-        result.put("defaultCapacity", settingsDelegate.getDefaultCapacity());
-        result.put("defaultDriverAvailable", settingsDelegate.getDefaultDriverAvailable());
-        result.put("defaultParkedCar", settingsDelegate.getDefaultParkedCar());
+        result.put("defaultCapacity", settingsDelegate.getDefaultCapacity().toString());
+        result.put("defaultDriverAvailable", settingsDelegate.getDefaultDriverAvailable().toString());
+        result.put("defaultParkedCar", settingsDelegate.getDefaultParkedCar().toString());
         result.put("defaultTimeStamp", settingsDelegate.getDefaultTimeStamp());
         result.put("defaultName", settingsDelegate.getDefaultName());
         result.put("defaultNetwork", settingsDelegate.getDefaultNetwork());
         result.put("defaultVersion", settingsDelegate.getDefaultVersion());
-        result.put("logDirectory", settingsDelegate.getLogDirectory());
-        result.put("logLevel", settingsDelegate.getLogLevel());
-        result.put("inputFile", settingsDelegate.getInputFile());
-        result.put("outputDirectory", settingsDelegate.getOutputDirectory());
-        result.put("configFile", settingsDelegate.getConfigFile());
+        result.put("logDirectory", "\""+settingsDelegate.getLogDirectory().getAbsolutePath()+"\"");
+        result.put("logLevel", settingsDelegate.getLogLevel().toString().toLowerCase());
+        result.put("inputFile", "\""+settingsDelegate.getInputFile().getAbsolutePath()+"\"");
+        result.put("outputDirectory", "\""+settingsDelegate.getOutputDirectory().getAbsolutePath()+"\"");
+        result.put("configFile", "\""+settingsDelegate.getConfigFile().getAbsolutePath()+"\"");
         result.put("otpServerURL", settingsDelegate.getOtpServerURL());
-        result.put("overrideConfigFile", settingsDelegate.isOverrideConfigFile());
-        result.put("distanceMargin", settingsDelegate.getDistanceMargin());
-        result.put("activateDefaultValues", settingsDelegate.isActivateDefaultValues());
-        result.put("generateCompleteGraph", settingsDelegate.isGenerateCompleteGraph());
-        result.put("generateIncompleteGraph", settingsDelegate.isGenerateIncompleteGraph());
+        result.put("overrideConfigFile", settingsDelegate.isOverrideConfigFile().toString());
+        result.put("distanceMargin", settingsDelegate.getDistanceMargin().toString());
+        result.put("activateDefaultValues", settingsDelegate.isActivateDefaultValues().toString());
+        result.put("generateCompleteGraph", settingsDelegate.isGenerateCompleteGraph().toString());
+        result.put("generateIncompleteGraph", settingsDelegate.isGenerateIncompleteGraph().toString());
         return result;
     }
 

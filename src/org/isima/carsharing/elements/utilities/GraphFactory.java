@@ -91,7 +91,7 @@ public class GraphFactory {
 
     }
 
-    public Simulation createIncompleteGraph(NodeMatrix nodeMatrix) {
+    public Simulation createIncompleteGraph(NodeMatrix nodeMatrix,Float distanceMaring) {
         double firstStepDistance, secondStepDistance, directPathDistance;
         double firstStepTime, secondStepTime, directPathTime;
         Response directPath;
@@ -120,7 +120,7 @@ public class GraphFactory {
                             //To test the direct path it must be alive and not marqued
                             if (directPath.isMarqued() == false && directPath.isAlive() == true) {
                                 //Test & marque and eventually kill a path
-                                if (directPathDistance + 0 >= firstStepDistance + secondStepDistance) {
+                                if (directPathDistance + distanceMaring >= firstStepDistance + secondStepDistance) {
                                     directPath.setAlive(false);
                                     directPath.setMarqued(true);
                                     alivePaths.remove(directPath);

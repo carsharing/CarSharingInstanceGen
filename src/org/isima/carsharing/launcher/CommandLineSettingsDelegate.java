@@ -202,75 +202,75 @@ public class CommandLineSettingsDelegate  implements SettingsDelegate{
     }
     
     public void updateFromConfigFile(Map<String,Object> properties){
-        if(this.defaultCapacity!=null ){
+        if(this.defaultCapacity==null){
             this.defaultCapacity = (Integer) properties.get("defaultCapacity");
         }
         
-        if(this.defaultDriverAvailable!=null ){
+        if(this.defaultDriverAvailable==null){
             this.defaultDriverAvailable = (Integer) properties.get("defaultDriverAvailable");
         }
         
-        if(this.defaultParkedCar !=null ){
+        if(this.defaultParkedCar ==null){
             this.defaultParkedCar = (Integer) properties.get("defaultParkedCar");
         }
         
-        if(this.defaultTimeStamp !=null ){
+        if(this.defaultTimeStamp ==null){
             this.defaultTimeStamp = (String) properties.get("defaultTimeStamp");
         }
         
-        if(this.defaultName !=null ){
+        if(this.defaultName ==null){
             this.defaultName = (String) properties.get("defaultName");
         }
         
-        if(this.defaultNetwork !=null ){
+        if(this.defaultNetwork ==null){
             this.defaultNetwork = (String) properties.get("defaultNetwork");
         }
         
-        if(this.defaultVersion !=null ){
+        if(this.defaultVersion ==null){
             this.defaultVersion = (String) properties.get("defaultVersion");
         }
         
-        if(this.logDirectory !=null ){
+        if(this.logDirectory ==null){
             this.logDirectory = (File) properties.get("logDirectory");
         }
         
-        if(this.logLevel !=null ){
+        if(this.logLevel ==null){
             this.logLevel = (Level) properties.get("logLevel");
         }
         
-        if(this.inputFile !=null ){
+        if(this.inputFile ==null){
             this.inputFile = (File) properties.get("inputFile");
         }
         
-        if(this.outputDirectory !=null ){
+        if(this.outputDirectory ==null){
             this.outputDirectory = (File) properties.get("outputDirectory");
         }
         
-        if(this.configFile !=null ){
+        if(this.configFile ==null){
             this.configFile = (File) properties.get("configFile");
         }
         
-        if(this.otpServerURL !=null ){
+        if(this.otpServerURL ==null){
             this.otpServerURL = (String) properties.get("otpServerURL");
         }
         
-        if(this.overrideConfigFile !=null ){
+        if(this.overrideConfigFile ==null){
             this.overrideConfigFile = (Boolean) properties.get("overrideConfigFile");
         }
         
-        if(this.distanceMargin !=null ){
+        if(this.distanceMargin ==null){
             this.distanceMargin = (Float) properties.get("distanceMargin");
         }
         
-        if(this.activateDefaultValues !=null ){
+        if(this.activateDefaultValues ==null){
             this.activateDefaultValues = (Boolean) properties.get("activateDefaultValues");
         }
         
-        if(this.generateCompleteGraph !=null ){
+        if(this.generateCompleteGraph ==null){
             this.generateCompleteGraph = (Boolean) properties.get("generateCompleteGraph");
         }
         
-        if(this.generateIncompleteGraph !=null ){
+        if(this.generateIncompleteGraph ==null){
             this.generateIncompleteGraph = (Boolean) properties.get("generateIncompleteGraph");
         }
     }
@@ -278,75 +278,75 @@ public class CommandLineSettingsDelegate  implements SettingsDelegate{
     public void updateFromSimpleConfig(){
         SimpleSettingsDelegate settingsDelegate = new SimpleSettingsDelegate();
         
-        if(this.defaultCapacity!=null ){
+        if(this.defaultCapacity ==null ){
             this.defaultCapacity = settingsDelegate.getDefaultCapacity();
         }
         
-        if(this.defaultDriverAvailable!=null ){
+        if(this.defaultDriverAvailable ==null ){
             this.defaultDriverAvailable = settingsDelegate.getDefaultDriverAvailable();
         }
         
-        if(this.defaultParkedCar !=null ){
+        if(this.defaultParkedCar  ==null ){
             this.defaultParkedCar = settingsDelegate.getDefaultParkedCar();
         }
         
-        if(this.defaultTimeStamp !=null ){
+        if(this.defaultTimeStamp  ==null ){
             this.defaultTimeStamp = settingsDelegate.getDefaultTimeStamp();
         }
         
-        if(this.defaultName !=null ){
+        if(this.defaultName ==null ){
             this.defaultName = settingsDelegate.getDefaultName();
         }
         
-        if(this.defaultNetwork !=null ){
+        if(this.defaultNetwork ==null){
             this.defaultNetwork = settingsDelegate.getDefaultNetwork();
         }
         
-        if(this.defaultVersion !=null ){
+        if(this.defaultVersion ==null){
             this.defaultVersion = settingsDelegate.getDefaultVersion();
         }
         
-        if(this.logDirectory !=null ){
+        if(this.logDirectory ==null){
             this.logDirectory = settingsDelegate.getLogDirectory();
         }
         
-        if(this.logLevel !=null ){
+        if(this.logLevel ==null){
             this.logLevel = settingsDelegate.getLogLevel();
         }
         
-        if(this.inputFile !=null ){
+        if(this.inputFile ==null){
             this.inputFile = settingsDelegate.getInputFile();
         }
         
-        if(this.outputDirectory !=null ){
+        if(this.outputDirectory ==null){
             this.outputDirectory = settingsDelegate.getOutputDirectory();
         }
         
-        if(this.configFile !=null ){
+        if(this.configFile ==null){
             this.configFile = settingsDelegate.getConfigFile();
         }
         
-        if(this.otpServerURL !=null ){
+        if(this.otpServerURL ==null){
             this.otpServerURL = settingsDelegate.getOtpServerURL();
         }
         
-        if(this.overrideConfigFile !=null ){
+        if(this.overrideConfigFile ==null){
             this.overrideConfigFile = settingsDelegate.isOverrideConfigFile();
         }
         
-        if(this.distanceMargin !=null ){
+        if(this.distanceMargin ==null){
             this.distanceMargin = settingsDelegate.getDistanceMargin();
         }
         
-        if(this.activateDefaultValues !=null ){
+        if(this.activateDefaultValues ==null){
             this.activateDefaultValues = settingsDelegate.isActivateDefaultValues();
         }
         
-        if(this.generateCompleteGraph !=null ){
+        if(this.generateCompleteGraph ==null){
             this.generateCompleteGraph = settingsDelegate.isGenerateCompleteGraph();
         }
         
-        if(this.generateIncompleteGraph !=null ){
+        if(this.generateIncompleteGraph ==null){
             this.generateIncompleteGraph = settingsDelegate.isGenerateIncompleteGraph();
         }
     }    

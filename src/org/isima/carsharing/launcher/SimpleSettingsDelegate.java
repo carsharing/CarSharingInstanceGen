@@ -84,7 +84,7 @@ public class SimpleSettingsDelegate implements SettingsDelegate{
     @Override
     public File getConfigFile(){
         try {
-            File in = new File("config.xml");
+            File in = new File("conf.properties");
             in.createNewFile();
             return in;
         } catch (IOException ex) {

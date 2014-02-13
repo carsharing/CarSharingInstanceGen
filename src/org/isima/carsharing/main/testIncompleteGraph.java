@@ -12,6 +12,7 @@ import org.isima.carsharing.elements.NodeMetaData;
 import org.isima.carsharing.elements.utilities.GraphFactory;
 import org.isima.carsharing.elements.utilities.NodeUtilities;
 import org.isima.carsharing.launcher.CommandLineSettingsDelegate;
+import org.isima.carsharing.launcher.SimpleSettingsDelegate;
 import org.isima.otpclient.data.NodeMatrix;
 import org.isima.otpclient.data.Response;
 
@@ -73,7 +74,7 @@ public class testIncompleteGraph {
         nodeMatrix.setNodes(nodes);
         
         NodeUtilities utilities = new NodeUtilities();
-        utilities.setDefaultValues(nodes, new CommandLineSettingsDelegate(),true);
+        utilities.setDefaultValues(nodes, new SimpleSettingsDelegate(),true);
         
         nodeMatrix.addValue(nodex, nodex, responsexx);
         nodeMatrix.addValue(nodey, nodey, responseyy);
@@ -98,7 +99,7 @@ public class testIncompleteGraph {
         
         GraphFactory gf = new GraphFactory();
         
-        gf.createIncompleteGraph(nodeMatrix);
+        gf.createIncompleteGraph(nodeMatrix,0f);
         
         for(Response response : nodeMatrix.getAllValues()){
             System.out.println("Response: ");

@@ -52,12 +52,7 @@ public class SettingsDelegateFactory {
                             //Error
                         }
                     } else {
-                        boolean mkdirStatus = Ldout.mkdirs();
-                        if (mkdirStatus == false) {
-                            //error
-                        } else {
-                            settingsdDelegate.setLogDirectory(Ldout);
-                        }
+                        //Error
                     }
                 } else if (s.substring(0,s.indexOf(":")+1).equals("Llvl:")) {
                     String Llvl = s.substring(s.indexOf(":")+1, s.length());
@@ -100,12 +95,7 @@ public class SettingsDelegateFactory {
                             //Error
                         }
                     } else {
-                        boolean mkdirStatus = out.mkdirs();
-                        if (mkdirStatus == false) {
-                            //error
-                        } else {
-                            settingsdDelegate.setOutputDirectory(out);
-                        }
+                        //Error
                     }
                 } else if (s.substring(0,s.indexOf(":")+1).equals("conf:")) {
                     String confPath = s.substring(s.indexOf(":")+1, s.length());
@@ -191,7 +181,9 @@ public class SettingsDelegateFactory {
             try {
                 File configFile = settingsdDelegate.getConfigFile();
                 Map<String, Object> readMap = configFileHandler.read(configFile);
-                settingsdDelegate.updateFromConfigFile(readMap);
+                if(readMap != null){
+                    settingsdDelegate.updateFromConfigFile(readMap);                    
+                }
             } catch (IOException ex) {
                 Logger.getLogger(SettingsDelegateFactory.class.getName()).log(Level.SEVERE, null, ex);
             }
