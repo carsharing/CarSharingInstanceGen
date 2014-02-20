@@ -11,7 +11,6 @@ import org.isima.carsharing.elements.Node;
 import org.isima.carsharing.elements.NodeMetaData;
 import org.isima.carsharing.elements.utilities.GraphFactory;
 import org.isima.carsharing.elements.utilities.NodeUtilities;
-import org.isima.carsharing.launcher.CommandLineSettingsDelegate;
 import org.isima.carsharing.launcher.SimpleSettingsDelegate;
 import org.isima.otpclient.data.NodeMatrix;
 import org.isima.otpclient.data.Response;

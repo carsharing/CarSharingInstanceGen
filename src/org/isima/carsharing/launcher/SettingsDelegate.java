@@ -49,4 +49,6 @@ public interface SettingsDelegate {
     public Boolean isGenerateCompleteGraph();
 
     public Boolean isGenerateIncompleteGraph();
+    
+    public String usedConfigsToXMLComment();
 }

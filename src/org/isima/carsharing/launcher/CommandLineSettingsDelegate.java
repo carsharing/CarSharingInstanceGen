@@ -350,5 +350,36 @@ public class CommandLineSettingsDelegate  implements SettingsDelegate{
             this.generateIncompleteGraph = settingsDelegate.isGenerateIncompleteGraph();
         }
     }    
+
+    @Override
+    public String usedConfigsToXMLComment() {
+        String result = "Used config :\n";
+        
+        result += "\tNodes default values\n";
+        result += "\t\tdefaultParkedCar = "+defaultParkedCar+"\n";
+        result += "\t\tdefaultCapacity = "+defaultCapacity+"\n";
+        result += "\t\tdefaultNetwork = "+defaultNetwork+"\n";
+        result += "\t\tdefaultTimeStamp = "+defaultTimeStamp+"\n";
+        result += "\t\tdefaultName = "+defaultName+"\n";
+        result += "\t\tdefaultDriverAvailable = "+defaultDriverAvailable+"\n";
+        result += "\t\tdefaultVersion = "+defaultVersion+"\n";
+        
+        result += "\tLaunch config\n";
+        result += "\t\tlogDirectory = "+logDirectory.getPath()+"\n";
+        result += "\t\tlogLevel = "+logLevel.toString()+"\n";
+        result += "\t\tinputFile = "+inputFile.getAbsolutePath()+"\n";
+        result += "\t\toutputDirectory = "+outputDirectory.getParent()+"\n";
+        result += "\t\tconfigFile = "+configFile.getAbsolutePath()+"\n";
+        result += "\t\totpServerURL = "+otpServerURL+"\n";
+        result += "\t\toverrideConfigFile = "+overrideConfigFile+"\n";
+        
+        result += "\tGraph config\n";
+        result += "\t\tdistanceMargin = "+distanceMargin+"\n";
+        result += "\t\tactivateDefaultValues = "+activateDefaultValues+"\n";
+        result += "\t\tgenerateCompleteGraph = "+generateCompleteGraph+"\n";
+        result += "\t\tgenerateIncompleteGraph = "+generateIncompleteGraph+"\n";
+        
+        return result;
+    }
     
 }
