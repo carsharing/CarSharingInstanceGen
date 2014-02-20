@@ -39,59 +39,79 @@ import org.jdom2.output.XMLOutputter;
  * @author Hicham
  */
 public class Launcher {
+    private static final Logger logger = Logger.getLogger("CarSharingInstanceGen");
 
     public static void main(String[] args) throws Exception {
         //dC:7 dD:1 dP:7 dT:n/a dNm:test dNt:nt dV:n/a Llvl:a serv:localhost oConf:y defValues:y completeGraph:y incompleteGraph:y in:"C:\Users\Hicham\Desktop\PFA 3 bis\data\bicycle-rental-dijon.xml" Ldout:log out:out conf:"C:\Users\Hicham\Documents\NetBeansProjects\CarSharing Instance Generator\test\conf.properties" serv:"http://localhost:8080/otp-rest-servlet/plan" 
         SettingsDelegateFactory settingsDelegateFactory = new SettingsDelegateFactory();
+        System.out.println("Called config");
         for (String s : args) {
             System.out.println(s);
         }
 
+        logger.log(Level.INFO,"[{0}"+"]"+" Reading config ...", Launcher.class.getName());
         SettingsDelegate settingsDelegate = settingsDelegateFactory.findSettingsdDelegate(args);
-        LoggingConfiguratorFactory loggingConfiguratorFactory = new LoggingConfiguratorFactory(Logger.getLogger("CarSharing"), settingsDelegate.getLogLevel(), settingsDelegate.getLogDirectory());
+        LoggingConfiguratorFactory loggingConfiguratorFactory = new LoggingConfiguratorFactory(logger, settingsDelegate.getLogLevel(), settingsDelegate.getLogDirectory());
         loggingConfiguratorFactory.applySimpleLoggingConfig();
         loggingConfiguratorFactory.applyXMLLoggingConfig();
-
+        
+        logger.log(Level.INFO,"[{0}"+"]"+" Unmarshalling input file", Launcher.class.getName());
+        logger.log(Level.WARNING,"[{0}"+"]"+" Input file: {1}", new Object[]{Launcher.class.getName(), settingsDelegate.getInputFile().getAbsolutePath()});
         XMLDataCollection dataCollected = XMLNodeUtilities.unmarshal(settingsDelegate.getInputFile());
         List<Node> nodeCollection = new LinkedList<>();
+        logger.log(Level.INFO,"[{0}"+"]"+" Converting collected data to Nodes", Launcher.class.getName());
         XMLNodeUtilities.XMLtoElements(dataCollected, nodeCollection);
+        logger.log(Level.WARNING,"[{0}"+"]"+" Found {1} Nodes", new Object[]{Launcher.class.getName(), nodeCollection.size()});
 
         NodeUtilities utility = new NodeUtilities();
         //Test node's info and its metadata
         Collection<Node> incompleteNodes = utility.getIncompleteNodes(nodeCollection, true);
+        logger.log(Level.WARNING,"[{0}"+"]"+" Found {1} incomplete Nodes (MetaData tested)", new Object[]{Launcher.class.getName(), incompleteNodes.size()});
         //Test only node's info
         Collection<Node> incompleteNodes1 = utility.getIncompleteNodes(nodeCollection, false);
+        logger.log(Level.WARNING,"[{0}"+"]"+" Found {1} incomplete Nodes (MetaData untested)", new Object[]{Launcher.class.getName(), incompleteNodes1.size()});
         //Set default values for incomplete node's info and metadata
-        utility.setDefaultValues(incompleteNodes, settingsDelegate, true);
+        if(settingsDelegate.isActivateDefaultValues()){
+            logger.log(Level.WARNING,"[{0}"+"]"+" Setting default values in incomplete Nodes (MetaData included)", Launcher.class.getName());
+            utility.setDefaultValues(incompleteNodes, settingsDelegate, true);
+        }
 
         //Creating the nodes matrix (and calculating routes)
         MatrixFactory matrixFactory = new MatrixFactory();
+        logger.log(Level.INFO,"[{0}"+"]"+" Creating Nodes' matrix", Launcher.class.getName());
         NodeMatrix nodeMatrix = matrixFactory.createNodeMatrix(settingsDelegate.getOtpServerURL(), nodeCollection);
+        logger.log(Level.INFO,"[{0}"+"]"+" Correcting one way paths in Nodes' matrix", Launcher.class.getName());
         MatrixUtility.correctOneWayPaths(nodeMatrix);
+        
         System.out.println(nodeMatrix.toString());
 
         //Getting GraphFactory
         GraphFactory graphFactory = new GraphFactory();
 
         //Marshaling graph output
+        logger.log(Level.FINE,"[{0}"+"]"+" Preparing graph output", Launcher.class.getName());
         JAXBContext jc = JAXBContext.newInstance(GraphBuilder.class);
         Marshaller marshaller = jc.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
         if (settingsDelegate.isGenerateCompleteGraph()) {
-            Simulation sim = graphFactory.createCompleteGraph(nodeMatrix);
             File out = new File(settingsDelegate.getOutputDirectory().getAbsolutePath() + File.separator + "completeGraph.xml");
+            logger.log(Level.WARNING,"[{0}"+"]"+" Creating complete graph to output {1}", new Object[]{Launcher.class.getName(), out.getAbsolutePath()});
+            Simulation sim = graphFactory.createCompleteGraph(nodeMatrix);
             marshaller.marshal(sim, out);
+            logger.log(Level.INFO,"[{0}"+"]"+" Finalizing complete graph output", Launcher.class.getName());
             addConfigComment(settingsDelegate,out);
         }
         if (settingsDelegate.isGenerateIncompleteGraph()) {
-            Simulation sim = graphFactory.createIncompleteGraph(nodeMatrix, settingsDelegate.getDistanceMargin());
             File out =  new File(settingsDelegate.getOutputDirectory().getAbsolutePath() + File.separator + "incompleteGraph.xml");
+            logger.log(Level.WARNING,"[{0}"+"]"+" Creating incomplete graph to output {1}", new Object[]{Launcher.class.getName(), out.getAbsolutePath()});
+            Simulation sim = graphFactory.createIncompleteGraph(nodeMatrix, settingsDelegate.getDistanceMargin());
             marshaller.marshal(sim,out);
+            logger.log(Level.INFO,"[{0}"+"]"+" Finalizing incomplete graph output", Launcher.class.getName());
             addConfigComment(settingsDelegate,out);
         }
 
-        System.out.println("END;");
+        logger.log(Level.INFO,"[{0}"+"]"+" Finalizing complete graph output {1}", Launcher.class.getName());
     }
 
     public static void addConfigComment(SettingsDelegate settingsDelegate,File out) {
