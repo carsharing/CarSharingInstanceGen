@@ -1,30 +1,30 @@
-févr. 20, 2014 10:12:24 AM org.isima.carsharing.launcher.Launcher main
+févr. 21, 2014 11:14:33 AM org.isima.carsharing.launcher.Launcher main
 Infos: [org.isima.carsharing.launcher.Launcher] Unmarshalling input file
-févr. 20, 2014 10:12:24 AM org.isima.carsharing.launcher.Launcher main
+févr. 21, 2014 11:14:33 AM org.isima.carsharing.launcher.Launcher main
 Avertissement: [org.isima.carsharing.launcher.Launcher] Input file: C:\Users\Hicham\Desktop\PFA 3 bis\data\bicycle-rental-dijon.xml
-févr. 20, 2014 10:12:24 AM org.isima.carsharing.launcher.Launcher main
+févr. 21, 2014 11:14:33 AM org.isima.carsharing.launcher.Launcher main
 Infos: [org.isima.carsharing.launcher.Launcher] Converting collected data to Nodes
-févr. 20, 2014 10:12:24 AM org.isima.carsharing.launcher.Launcher main
+févr. 21, 2014 11:14:33 AM org.isima.carsharing.launcher.Launcher main
 Avertissement: [org.isima.carsharing.launcher.Launcher] Found 36 Nodes
-févr. 20, 2014 10:12:24 AM org.isima.carsharing.launcher.Launcher main
+févr. 21, 2014 11:14:33 AM org.isima.carsharing.launcher.Launcher main
 Avertissement: [org.isima.carsharing.launcher.Launcher] Found 2 incomplete Nodes (MetaData tested)
-févr. 20, 2014 10:12:24 AM org.isima.carsharing.launcher.Launcher main
+févr. 21, 2014 11:14:33 AM org.isima.carsharing.launcher.Launcher main
 Avertissement: [org.isima.carsharing.launcher.Launcher] Found 2 incomplete Nodes (MetaData untested)
-févr. 20, 2014 10:12:24 AM org.isima.carsharing.launcher.Launcher main
+févr. 21, 2014 11:14:33 AM org.isima.carsharing.launcher.Launcher main
 Avertissement: [org.isima.carsharing.launcher.Launcher] Setting default values in incomplete Nodes (MetaData included)
-févr. 20, 2014 10:12:24 AM org.isima.carsharing.launcher.Launcher main
+févr. 21, 2014 11:14:33 AM org.isima.carsharing.launcher.Launcher main
 Infos: [org.isima.carsharing.launcher.Launcher] Creating Nodes matrix
-févr. 20, 2014 10:12:59 AM org.isima.carsharing.launcher.Launcher main
+févr. 21, 2014 11:15:02 AM org.isima.carsharing.launcher.Launcher main
 Infos: [org.isima.carsharing.launcher.Launcher] Correcting one way paths in Nodes matrix
-févr. 20, 2014 10:12:59 AM org.isima.carsharing.launcher.Launcher main
+févr. 21, 2014 11:15:02 AM org.isima.carsharing.launcher.Launcher main
 Précis: [org.isima.carsharing.launcher.Launcher] Preparing graph output
-févr. 20, 2014 10:13:00 AM org.isima.carsharing.launcher.Launcher main
+févr. 21, 2014 11:15:03 AM org.isima.carsharing.launcher.Launcher main
 Avertissement: [org.isima.carsharing.launcher.Launcher] Creating complete graph to output C:\Users\Hicham\Documents\NetBeansProjects\CarSharing Instance Generator\test\DefaultOutputDir\completeGraph.xml
-févr. 20, 2014 10:13:00 AM org.isima.carsharing.launcher.Launcher main
+févr. 21, 2014 11:15:03 AM org.isima.carsharing.launcher.Launcher main
 Infos: [org.isima.carsharing.launcher.Launcher] Finalizing complete graph output
-févr. 20, 2014 10:13:01 AM org.isima.carsharing.launcher.Launcher main
+févr. 21, 2014 11:15:03 AM org.isima.carsharing.launcher.Launcher main
 Avertissement: [org.isima.carsharing.launcher.Launcher] Creating incomplete graph to output C:\Users\Hicham\Documents\NetBeansProjects\CarSharing Instance Generator\test\DefaultOutputDir\incompleteGraph.xml
-févr. 20, 2014 10:13:01 AM org.isima.carsharing.launcher.Launcher main
+févr. 21, 2014 11:15:03 AM org.isima.carsharing.launcher.Launcher main
 Infos: [org.isima.carsharing.launcher.Launcher] Finalizing incomplete graph output
-févr. 20, 2014 10:13:01 AM org.isima.carsharing.launcher.Launcher main
+févr. 21, 2014 11:15:03 AM org.isima.carsharing.launcher.Launcher main
 Infos: [org.isima.carsharing.launcher.Launcher] Finalizing complete graph output {1}

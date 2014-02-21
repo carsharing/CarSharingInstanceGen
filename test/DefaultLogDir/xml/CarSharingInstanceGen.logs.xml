@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2014-02-20T10:12:24</date>
-  <millis>1392887544422</millis>
-  <sequence>0</sequence>
+  <date>2014-02-21T11:14:33</date>
+  <millis>1392977673052</millis>
+  <sequence>3</sequence>
   <logger>CarSharingInstanceGen</logger>
   <level>INFO</level>
   <class>org.isima.carsharing.launcher.Launcher</class>
@@ -13,9 +13,9 @@
   <message>[org.isima.carsharing.launcher.Launcher] Unmarshalling input file</message>
 </record>
 <record>
-  <date>2014-02-20T10:12:24</date>
-  <millis>1392887544436</millis>
-  <sequence>1</sequence>
+  <date>2014-02-21T11:14:33</date>
+  <millis>1392977673052</millis>
+  <sequence>4</sequence>
   <logger>CarSharingInstanceGen</logger>
   <level>WARNING</level>
   <class>org.isima.carsharing.launcher.Launcher</class>
@@ -24,9 +24,9 @@
   <message>[org.isima.carsharing.launcher.Launcher] Input file: C:\Users\Hicham\Desktop\PFA 3 bis\data\bicycle-rental-dijon.xml</message>
 </record>
 <record>
-  <date>2014-02-20T10:12:24</date>
-  <millis>1392887544804</millis>
-  <sequence>2</sequence>
+  <date>2014-02-21T11:14:33</date>
+  <millis>1392977673395</millis>
+  <sequence>5</sequence>
   <logger>CarSharingInstanceGen</logger>
   <level>INFO</level>
   <class>org.isima.carsharing.launcher.Launcher</class>
@@ -35,9 +35,9 @@
   <message>[org.isima.carsharing.launcher.Launcher] Converting collected data to Nodes</message>
 </record>
 <record>
-  <date>2014-02-20T10:12:24</date>
-  <millis>1392887544809</millis>
-  <sequence>3</sequence>
+  <date>2014-02-21T11:14:33</date>
+  <millis>1392977673395</millis>
+  <sequence>6</sequence>
   <logger>CarSharingInstanceGen</logger>
   <level>WARNING</level>
   <class>org.isima.carsharing.launcher.Launcher</class>
@@ -46,9 +46,9 @@
   <message>[org.isima.carsharing.launcher.Launcher] Found 36 Nodes</message>
 </record>
 <record>
-  <date>2014-02-20T10:12:24</date>
-  <millis>1392887544817</millis>
-  <sequence>4</sequence>
+  <date>2014-02-21T11:14:33</date>
+  <millis>1392977673395</millis>
+  <sequence>7</sequence>
   <logger>CarSharingInstanceGen</logger>
   <level>WARNING</level>
   <class>org.isima.carsharing.launcher.Launcher</class>
@@ -57,9 +57,9 @@
   <message>[org.isima.carsharing.launcher.Launcher] Found 2 incomplete Nodes (MetaData tested)</message>
 </record>
 <record>
-  <date>2014-02-20T10:12:24</date>
-  <millis>1392887544820</millis>
-  <sequence>5</sequence>
+  <date>2014-02-21T11:14:33</date>
+  <millis>1392977673395</millis>
+  <sequence>8</sequence>
   <logger>CarSharingInstanceGen</logger>
   <level>WARNING</level>
   <class>org.isima.carsharing.launcher.Launcher</class>
@@ -68,9 +68,9 @@
   <message>[org.isima.carsharing.launcher.Launcher] Found 2 incomplete Nodes (MetaData untested)</message>
 </record>
 <record>
-  <date>2014-02-20T10:12:24</date>
-  <millis>1392887544822</millis>
-  <sequence>6</sequence>
+  <date>2014-02-21T11:14:33</date>
+  <millis>1392977673395</millis>
+  <sequence>9</sequence>
   <logger>CarSharingInstanceGen</logger>
   <level>WARNING</level>
   <class>org.isima.carsharing.launcher.Launcher</class>
@@ -79,9 +79,9 @@
   <message>[org.isima.carsharing.launcher.Launcher] Setting default values in incomplete Nodes (MetaData included)</message>
 </record>
 <record>
-  <date>2014-02-20T10:12:24</date>
-  <millis>1392887544825</millis>
-  <sequence>7</sequence>
+  <date>2014-02-21T11:14:33</date>
+  <millis>1392977673410</millis>
+  <sequence>10</sequence>
   <logger>CarSharingInstanceGen</logger>
   <level>INFO</level>
   <class>org.isima.carsharing.launcher.Launcher</class>
@@ -90,9 +90,9 @@
   <message>[org.isima.carsharing.launcher.Launcher] Creating Nodes matrix</message>
 </record>
 <record>
-  <date>2014-02-20T10:12:59</date>
-  <millis>1392887579811</millis>
-  <sequence>8</sequence>
+  <date>2014-02-21T11:15:02</date>
+  <millis>1392977702816</millis>
+  <sequence>11</sequence>
   <logger>CarSharingInstanceGen</logger>
   <level>INFO</level>
   <class>org.isima.carsharing.launcher.Launcher</class>
@@ -101,9 +101,9 @@
   <message>[org.isima.carsharing.launcher.Launcher] Correcting one way paths in Nodes matrix</message>
 </record>
 <record>
-  <date>2014-02-20T10:12:59</date>
-  <millis>1392887579984</millis>
-  <sequence>9</sequence>
+  <date>2014-02-21T11:15:02</date>
+  <millis>1392977702941</millis>
+  <sequence>12</sequence>
   <logger>CarSharingInstanceGen</logger>
   <level>FINE</level>
   <class>org.isima.carsharing.launcher.Launcher</class>
@@ -112,9 +112,9 @@
   <message>[org.isima.carsharing.launcher.Launcher] Preparing graph output</message>
 </record>
 <record>
-  <date>2014-02-20T10:13:00</date>
-  <millis>1392887580096</millis>
-  <sequence>10</sequence>
+  <date>2014-02-21T11:15:03</date>
+  <millis>1392977703019</millis>
+  <sequence>13</sequence>
   <logger>CarSharingInstanceGen</logger>
   <level>WARNING</level>
   <class>org.isima.carsharing.launcher.Launcher</class>
@@ -123,9 +123,9 @@
   <message>[org.isima.carsharing.launcher.Launcher] Creating complete graph to output C:\Users\Hicham\Documents\NetBeansProjects\CarSharing Instance Generator\test\DefaultOutputDir\completeGraph.xml</message>
 </record>
 <record>
-  <date>2014-02-20T10:13:00</date>
-  <millis>1392887580290</millis>
-  <sequence>11</sequence>
+  <date>2014-02-21T11:15:03</date>
+  <millis>1392977703206</millis>
+  <sequence>14</sequence>
   <logger>CarSharingInstanceGen</logger>
   <level>INFO</level>
   <class>org.isima.carsharing.launcher.Launcher</class>
@@ -134,9 +134,9 @@
   <message>[org.isima.carsharing.launcher.Launcher] Finalizing complete graph output</message>
 </record>
 <record>
-  <date>2014-02-20T10:13:01</date>
-  <millis>1392887581001</millis>
-  <sequence>12</sequence>
+  <date>2014-02-21T11:15:03</date>
+  <millis>1392977703487</millis>
+  <sequence>15</sequence>
   <logger>CarSharingInstanceGen</logger>
   <level>WARNING</level>
   <class>org.isima.carsharing.launcher.Launcher</class>
@@ -145,9 +145,9 @@
   <message>[org.isima.carsharing.launcher.Launcher] Creating incomplete graph to output C:\Users\Hicham\Documents\NetBeansProjects\CarSharing Instance Generator\test\DefaultOutputDir\incompleteGraph.xml</message>
 </record>
 <record>
-  <date>2014-02-20T10:13:01</date>
-  <millis>1392887581316</millis>
-  <sequence>13</sequence>
+  <date>2014-02-21T11:15:03</date>
+  <millis>1392977703706</millis>
+  <sequence>16</sequence>
   <logger>CarSharingInstanceGen</logger>
   <level>INFO</level>
   <class>org.isima.carsharing.launcher.Launcher</class>
@@ -156,9 +156,9 @@
   <message>[org.isima.carsharing.launcher.Launcher] Finalizing incomplete graph output</message>
 </record>
 <record>
-  <date>2014-02-20T10:13:01</date>
-  <millis>1392887581448</millis>
-  <sequence>14</sequence>
+  <date>2014-02-21T11:15:03</date>
+  <millis>1392977703784</millis>
+  <sequence>17</sequence>
   <logger>CarSharingInstanceGen</logger>
   <level>INFO</level>
   <class>org.isima.carsharing.launcher.Launcher</class>
