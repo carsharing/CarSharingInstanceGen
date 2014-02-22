@@ -215,19 +215,24 @@ public class SettingsDelegateFactory {
          if(settingsdDelegate.getConfigFile() != null){
             try {
                 File configFile = settingsdDelegate.getConfigFile();
+                logger.log(Level.INFO,"[{0}"+"]"+" Reading configuration file {1}", new Object[]{SettingsDelegateFactory.class.getName(),settingsdDelegate.getConfigFile().getAbsoluteFile()});
                 Map<String, Object> readMap = configFileHandler.read(configFile);
                 if(readMap != null){
                     settingsdDelegate.updateFromConfigFile(readMap);                    
                 }
             } catch (IOException ex) {
-                Logger.getLogger(SettingsDelegateFactory.class.getName()).log(Level.SEVERE, null, ex);
+                logger.log(Level.SEVERE,"[{0}"+"]"+" Failed reading configuration file {1}", new Object[]{SettingsDelegateFactory.class.getName(),settingsdDelegate.getConfigFile().getAbsoluteFile()});
             }
          }
          
+         logger.log(Level.INFO,"[{0}"+"]"+" Gettings default values for missing settings", SettingsDelegateFactory.class.getName());
          settingsdDelegate.updateFromSimpleConfig();
          
          if(settingsdDelegate.isOverrideConfigFile()){
+             logger.log(Level.WARNING,"[{0}"+"]"+" Overwriting the configuration file {1}", new Object[]{SettingsDelegateFactory.class.getName(),settingsdDelegate.getConfigFile()});
              configFileHandler.overwrite(settingsdDelegate);
          }
+         
+         logger.log(Level.INFO,"[{0}"+"]"+" Used config: "+settingsdDelegate.toString(), SettingsDelegateFactory.class.getName());
     }
 }

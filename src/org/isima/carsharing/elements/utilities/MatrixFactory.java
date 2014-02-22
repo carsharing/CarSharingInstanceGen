@@ -24,7 +24,8 @@ import org.isima.otpclient.routing.Planner;
  */
 public class MatrixFactory {
 
-    private String Local = "us_US";
+    private static final Logger logger = Logger.getLogger("CarSharingInstanceGen");
+    private static final String Local = "us_US";
 
     public NodeMatrix createNodeMatrix(String serviceURL, Collection<Node> nodes) {
         //TODO : node utilites for incomplete nodes
@@ -36,9 +37,11 @@ public class MatrixFactory {
         Planner planner;
         Response response;
 
+        logger.log(Level.INFO, "[{0}" + "]" + " Requesting routes from OTP server for all nodes", MatrixFactory.class.getName());
         for (Node fromNode : nodes) {
             for (Node toNode : nodes) {
                 try {
+                    logger.log(Level.FINE, "[{0}" + "]" + " trip:[from: {1}] [to: {2}]", new Object[]{MatrixFactory.class.getName(), fromNode.getPosition(), toNode.getPosition()});
                     //Creating the requet from the two nodes
                     request = requestFactory.createRequest(fromNode, toNode);
                     //Setting request parameters
@@ -47,7 +50,7 @@ public class MatrixFactory {
                     request.setParameter(Request.LOCALE, Local);
                     request.setParameter(Request.INTERMEDIATE_STOPS, "false");
                     //Calculate route
-                    planner = new Planner("http://localhost:8080/otp-rest-servlet/plan", request);
+                    planner = new Planner(serviceURL, request);
                     response = planner.sendRequest();
                     //Add in node matrix
                     nodeMatrix.addValue(fromNode, toNode, response);

@@ -7,6 +7,8 @@
 package org.isima.otpclient.data;
 
 import java.util.Collection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.isima.carsharing.elements.Node;
 
 /**
@@ -14,6 +16,8 @@ import org.isima.carsharing.elements.Node;
  * @author Hicham
  */
 public class MatrixUtility {
+    private static final Logger logger = Logger.getLogger("CarSharingInstanceGen");
+    
     public static void correctOneWayPaths(NodeMatrix nodeMatrix){
         boolean isNullColumn;
         boolean isNullLine;
@@ -26,12 +30,12 @@ public class MatrixUtility {
             
             if(isNullColumn){
                 if(!isNullLine){
-                    System.out.println("Line ok, column not ok: "+node.getPosition());
+                    logger.log(Level.WARNING,"[{0}"+"]"+" Correcting one way path ending with [{1}]", new Object[]{MatrixUtility.class.getName(),node.getPosition()});
                     copyLineToColumn(line, nodeMatrix);
                 }
             }else if(isNullLine){
                 if(!isNullColumn){
-                    System.out.println("Line not ok, column ok: "+node.getPosition());
+                    logger.log(Level.WARNING,"[{0}"+"]"+" Correcting one way path starting with [{1}]", new Object[]{MatrixUtility.class.getName(),node.getPosition()});
                     copyColumnToLine(line, nodeMatrix);
                 }
             }

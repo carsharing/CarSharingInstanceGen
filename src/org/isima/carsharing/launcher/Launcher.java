@@ -48,9 +48,13 @@ public class Launcher {
         for (String s : args) {
             System.out.println(s);
         }
-
+        
+        //init the logger
+        logger.setLevel(Level.ALL);
+        
         logger.log(Level.INFO,"[{0}"+"]"+" Reading config ...", Launcher.class.getName());
         SettingsDelegate settingsDelegate = settingsDelegateFactory.findSettingsdDelegate(args);
+        //Update the logger
         LoggingConfiguratorFactory loggingConfiguratorFactory = new LoggingConfiguratorFactory(logger, settingsDelegate.getLogLevel(), settingsDelegate.getLogDirectory());
         loggingConfiguratorFactory.applySimpleLoggingConfig();
         loggingConfiguratorFactory.applyXMLLoggingConfig();

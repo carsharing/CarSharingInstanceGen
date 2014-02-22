@@ -16,15 +16,6 @@ import org.isima.carsharing.launcher.SettingsDelegate;
  * @author Hicham
  */
 public class NodeUtilities {
-
-    private static final Integer defaultCapacity = 2;
-    private static final Integer defaultDriverAvailable = 0;
-    private static final Integer defaultParkedCar = 2;
-    private static final String defaultTimeStamp = new Long(new Date().getTime()).toString();
-    private static final String defaultName = "unknown";
-    private static final String defaultNetwork = "unknown";
-    private static final String defaultVersion = "0.0(n/a)";
-
     /**
      *
      * @param nodes

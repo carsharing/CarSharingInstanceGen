@@ -7,7 +7,10 @@ package org.isima.carsharing.elements.utilities;
 
 import java.math.BigInteger;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.isima.carsharing.elements.Node;
+import org.isima.carsharing.launcher.Launcher;
 import org.isima.otpclient.data.NodeMatrix;
 import org.isima.otpclient.data.Response;
 
@@ -16,6 +19,7 @@ import org.isima.otpclient.data.Response;
  * @author Hicham
  */
 public class GraphFactory {
+    private static final Logger logger = Logger.getLogger("CarSharingInstanceGen");
 
     public Simulation createCompleteGraph(NodeMatrix nodeMatrix) {
         return this.createGraph(nodeMatrix, true);
@@ -98,6 +102,8 @@ public class GraphFactory {
         //At first all paths are alive
         Set<Response> alivePaths = nodeMatrix.getAllValues();
         int markedPathsNumber = 0, killedPathsNumber = 0, alivePathsNumber = alivePaths.size();
+        
+        logger.log(Level.INFO,"[{0}"+"]"+" Cleaning complete graph ...", GraphFactory.class.getName());
         //Get all nodes
         for (Node originNode : nodeMatrix.getNodes()) {
             //Get first step time and duration
@@ -117,10 +123,15 @@ public class GraphFactory {
                             directPath = nodeMatrix.getValue(originNode, secondStep.getToNode());
                             directPathDistance = directPath.getDistance();
                             directPathTime = directPath.getDuration();
+                            
+                            logger.log(Level.FINER,"[{0}"+"]"+" Start[{1}] FirstSetp[{2}] SecondStep[{3}]", new Object[]{GraphFactory.class.getName(),originNode.getPosition(),firstStep.getToNode().getPosition(),secondStep.getToNode().getPosition()});
+                            logger.log(Level.FINE,"[{0}"+"]"+" Start[{1}] to SecondStep[{3}] passing by FirstSetp[{2}]= {4}", new Object[]{GraphFactory.class.getName(),originNode.getPosition(),firstStep.getToNode().getPosition(),secondStep.getToNode().getPosition(),(firstStepDistance + secondStepDistance)});
+                            logger.log(Level.FINE,"[{0}"+"]"+" Start[{1}] to SecondStep[{2}] direct= {3}", new Object[]{GraphFactory.class.getName(),originNode.getPosition(),secondStep.getToNode().getPosition(),directPathDistance});
                             //To test the direct path it must be alive and not marqued
                             if (directPath.isMarqued() == false && directPath.isAlive() == true) {
                                 //Test & marque and eventually kill a path
                                 if (directPathDistance + distanceMaring >= firstStepDistance + secondStepDistance) {
+                                    logger.log(Level.FINE,"[{0}"+"]"+" Start[{1}] to SecondStep[{2}] directpath killed", new Object[]{GraphFactory.class.getName(),originNode.getPosition(),secondStep.getToNode().getPosition()});
                                     directPath.setAlive(false);
                                     directPath.setMarqued(true);
                                     alivePaths.remove(directPath);
@@ -128,7 +139,7 @@ public class GraphFactory {
                                     killedPathsNumber++;
                                     markedPathsNumber++;
                                 } 
-                                /* Not working woth time for now
+                                /* Not working with time for now
                                 else if (directPathTime >= firstStepTime + secondStepTime) {
                                     directPath.setAlive(false);
                                     directPath.setMarqued(true);
@@ -138,14 +149,12 @@ public class GraphFactory {
                                     markedPathsNumber++;
                                 } */
                                 else {
+                                    logger.log(Level.FINE,"[{0}"+"]"+" Start[{1}] to SecondStep[{2}] directpath NOT killed", new Object[]{GraphFactory.class.getName(),originNode.getPosition(),secondStep.getToNode().getPosition()});
                                     directPath.setMarqued(true);
                                     markedPathsNumber++;
                                 }
                             }
-                        } else if (secondStep.getToNode().equals(firstStep)) {
-                            secondStep.setMarqued(true);
-                            markedPathsNumber++;
-                        }
+                        } 
                     }
                 } else if (firstStep.getToNode().equals(originNode) && firstStep.isMarqued()==false) {
 //                    firstStep.setMarqued(true);
@@ -167,7 +176,7 @@ public class GraphFactory {
                 break;
             }
         }
-        System.out.println("marked: " + markedPathsNumber + " killed: " + killedPathsNumber + " alive: " + alivePathsNumber);
+        logger.log(Level.WARNING,"[{0}"+"]"+" Cleaning done : markedPaths:"+markedPathsNumber +" killedPaths:"+ killedPathsNumber +" alivePaths:"+ alivePathsNumber, GraphFactory.class.getName());
         return this.createGraph(nodeMatrix, false);
     }
 

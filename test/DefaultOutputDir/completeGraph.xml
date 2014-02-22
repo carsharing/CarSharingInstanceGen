@@ -14,8 +14,8 @@
 		inputFile = C:\Users\Hicham\Desktop\PFA 3 bis\data\bicycle-rental-dijon.xml
 		outputDirectory = C:\Users\Hicham\Documents\NetBeansProjects\CarSharing Instance Generator\test
 		configFile = C:\Users\Hicham\Documents\NetBeansProjects\CarSharing Instance Generator\test\conf.properties
-		otpServerURL = localhost:8080
-		overrideConfigFile = true
+		otpServerURL = http://localhost:8080/otp-rest-servlet/plan
+		overrideConfigFile = false
 	Graph config
 		distanceMargin = 120.0
 		activateDefaultValues = true

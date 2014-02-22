@@ -381,5 +381,10 @@ public class CommandLineSettingsDelegate  implements SettingsDelegate{
         
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "CommandLineSettingsDelegate{" + "defaultCapacity=" + defaultCapacity + ", defaultDriverAvailable=" + defaultDriverAvailable + ", defaultParkedCar=" + defaultParkedCar + ", defaultTimeStamp=" + defaultTimeStamp + ", defaultName=" + defaultName + ", defaultNetwork=" + defaultNetwork + ", defaultVersion=" + defaultVersion + ", logDirectory=" + logDirectory + ", logLevel=" + logLevel + ", inputFile=" + inputFile + ", outputDirectory=" + outputDirectory + ", configFile=" + configFile + ", otpServerURL=" + otpServerURL + ", overrideConfigFile=" + overrideConfigFile + ", distanceMargin=" + distanceMargin + ", activateDefaultValues=" + activateDefaultValues + ", generateCompleteGraph=" + generateCompleteGraph + ", generateIncompleteGraph=" + generateIncompleteGraph + '}';
+    }
     
 }
