@@ -1,0 +1,218 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osm version="0.6" generator="Osmosis 0.43.1">
+    <bounds minlon="4.99360" minlat="47.29420" maxlon="5.09640" maxlat="47.35000" origin="0.43.1"/>
+    <node id="250556967" version="4" timestamp="2010-11-13T07:42:10Z" uid="327907" user="wyo" changeset="6356192" lat="47.312387" lon="5.0269565">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="9"/>
+        <tag k="name" v="Quai Navier"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749204" version="6" timestamp="2012-09-25T20:48:15Z" uid="57645" user="KartoGrapHiti" changeset="13252274" lat="47.3205142" lon="5.0409532">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="15"/>
+        <tag k="name" v="Place Saint-Fiacre"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749206" version="4" timestamp="2012-09-25T20:48:15Z" uid="57645" user="KartoGrapHiti" changeset="13252274" lat="47.3211402" lon="5.038951">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="18"/>
+        <tag k="name" v="Dauphine"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749207" version="8" timestamp="2012-09-25T17:30:47Z" uid="57645" user="KartoGrapHiti" changeset="13249818" lat="47.3221867" lon="5.0409098">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="24"/>
+        <tag k="name" v="Place Notre-Dame"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749214" version="6" timestamp="2013-10-22T14:13:22Z" uid="46239" user="matthieu" changeset="18486931" lat="47.3210145" lon="5.0435195">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="24"/>
+        <tag k="name" v="Place du Théatre"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749216" version="3" timestamp="2012-09-25T20:48:16Z" uid="57645" user="KartoGrapHiti" changeset="13252274" lat="47.3192114" lon="5.0431538">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="15"/>
+        <tag k="name" v="Rue Chabot Charny"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749217" version="3" timestamp="2012-09-25T20:48:16Z" uid="57645" user="KartoGrapHiti" changeset="13252274" lat="47.3190314" lon="5.040261">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="18"/>
+        <tag k="name" v="Place des Cordeliers"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749219" version="8" timestamp="2012-09-25T20:48:15Z" uid="57645" user="KartoGrapHiti" changeset="13252274" lat="47.3210455" lon="5.0369379">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="30"/>
+        <tag k="name" v="Place Bossuet"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749220" version="8" timestamp="2012-09-25T20:48:15Z" uid="57645" user="KartoGrapHiti" changeset="13252274" lat="47.3231044" lon="5.0381087">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="21"/>
+        <tag k="name" v="Place Grangier"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749222" version="4" timestamp="2012-09-25T20:48:16Z" uid="57645" user="KartoGrapHiti" changeset="13252274" lat="47.3238522" lon="5.044487">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="12"/>
+        <tag k="name" v="Rue Auguste Comte"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749225" version="6" timestamp="2012-09-25T20:48:17Z" uid="57645" user="KartoGrapHiti" changeset="13252274" lat="47.3215235" lon="5.0476614">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="24"/>
+        <tag k="name" v="Rue Jeannin"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749226" version="5" timestamp="2012-11-24T14:08:27Z" uid="568960" user="VELODB" changeset="14012915" lat="47.3166186" lon="5.0435001">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="30"/>
+        <tag k="name" v="Place Wilson"/>
+        <tag k="network" v="vélodi"/>
+        <tag k="wheelchair" v="yes"/>
+    </node>
+    <node id="250749228" version="9" timestamp="2010-09-02T17:46:55Z" uid="338211" user="Dlareg" changeset="5664203" lat="47.3192274" lon="5.0352681">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="16"/>
+        <tag k="name" v="Place Émile Zola"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749229" version="9" timestamp="2012-02-17T12:24:39Z" uid="420883" user="joedal-osm" changeset="10710615" lat="47.321504" lon="5.0336435">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="18"/>
+        <tag k="name" v="Place Sainte-Benigne"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749231" version="5" timestamp="2012-09-25T20:48:17Z" uid="57645" user="KartoGrapHiti" changeset="13252274" lat="47.3261602" lon="5.0426443">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="20"/>
+        <tag k="name" v="Rue de la Préfecture"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749232" version="6" timestamp="2013-02-12T17:31:40Z" uid="338211" user="Dlareg" changeset="15008996" lat="47.321532" lon="5.0516139">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="18"/>
+        <tag k="name" v="Place du 30 Octobre et de la Légion d&apos;Honneur"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749234" version="7" timestamp="2010-08-31T17:34:50Z" uid="338211" user="Dlareg" changeset="5647405" lat="47.3172267" lon="5.0334366">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="13"/>
+        <tag k="name" v="Montée de Guise - Berbisey"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749235" version="5" timestamp="2012-11-30T14:35:03Z" uid="39212" user="HawkForce" changeset="14099567" lat="47.3255941" lon="5.0403883">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="30"/>
+        <tag k="name" v="Cellier de Clairvaux"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749237" version="5" timestamp="2013-06-19T23:20:08Z" uid="46239" user="matthieu" changeset="16623670" lat="47.3235482" lon="5.0328012">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="18"/>
+        <tag k="name" v="Place Darcy"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749238" version="4" timestamp="2012-09-25T20:48:15Z" uid="57645" user="KartoGrapHiti" changeset="13252274" lat="47.3131964" lon="5.0444414">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="24"/>
+        <tag k="name" v="Cours du Général de Gaulle - Clinique"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749242" version="6" timestamp="2012-09-25T20:48:16Z" uid="57645" user="KartoGrapHiti" changeset="13252274" lat="47.3261403" lon="5.0451268">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="20"/>
+        <tag k="name" v="Place de la République"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749244" version="8" timestamp="2012-11-11T20:47:48Z" uid="585897" user="FredL21" changeset="13839190" lat="47.3182775" lon="5.0297563">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="8"/>
+        <tag k="name" v="Rue du Faubourg Raines - Hôpital"/>
+        <tag k="network" v="vélodi"/>
+        <tag k="source" v="Bing"/>
+    </node>
+    <node id="250749245" version="5" timestamp="2011-09-18T11:15:44Z" uid="338211" user="Dlareg" changeset="9331681" lat="47.3158899" lon="5.0314701">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="15"/>
+        <tag k="name" v="Rue des Corroyeurs"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749247" version="5" timestamp="2012-09-25T20:48:17Z" uid="57645" user="KartoGrapHiti" changeset="13252274" lat="47.3276352" lon="5.0415019">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="12"/>
+        <tag k="name" v="Rue Sambin - Ecole de Commerce"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749248" version="4" timestamp="2010-01-02T11:59:53Z" uid="165807" user="Philippe21" changeset="3517546" lat="47.3236602" lon="5.0316493">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="6"/>
+        <tag k="name" v="Avenue Foch - Office du Tourisme"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749250" version="5" timestamp="2012-09-25T20:48:14Z" uid="57645" user="KartoGrapHiti" changeset="13252274" lat="47.327893" lon="5.0494409">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="18"/>
+        <tag k="name" v="Boulevard Clémenceau - Conservatoire"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749251" version="4" timestamp="2012-09-25T20:48:15Z" uid="57645" user="KartoGrapHiti" changeset="13252274" lat="47.3277068" lon="5.0452395">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="24"/>
+        <tag k="name" v="Place Jardillier"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749253" version="5" timestamp="2009-10-03T21:35:11Z" uid="114161" user="Polarbear" changeset="2729160" lat="47.3203243" lon="5.0262346">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="9"/>
+        <tag k="name" v="Planétarium"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749254" version="4" timestamp="2012-09-25T20:48:15Z" uid="57645" user="KartoGrapHiti" changeset="13252274" lat="47.3072583" lon="5.0468853">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="24"/>
+        <tag k="name" v="Cours du Parc - Piscine"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749256" version="7" timestamp="2010-01-09T21:26:50Z" uid="165807" user="Philippe21" changeset="3582207" lat="47.326352" lon="5.0301479">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="2"/>
+        <tag k="name" v="Avenue Victor Hugo - Sciences Po"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749257" version="3" timestamp="2010-01-02T11:58:30Z" uid="165807" user="Philippe21" changeset="3517538" lat="47.3234751" lon="5.0273869">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="6"/>
+        <tag k="name" v="Gare Dijon Ville"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749259" version="5" timestamp="2012-09-25T20:48:15Z" uid="57645" user="KartoGrapHiti" changeset="13252274" lat="47.3288419" lon="5.0519503">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="30"/>
+        <tag k="name" v="Place Jean Bouhey - Auditorium"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="250749260" version="4" timestamp="2010-01-10T00:08:54Z" uid="165807" user="Philippe21" changeset="3583601" lat="47.3289392" lon="5.0386926">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="4"/>
+        <tag k="name" v="Place Barbe"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="1669826331" version="2" timestamp="2012-09-25T20:48:14Z" uid="57645" user="KartoGrapHiti" changeset="13252274" lat="47.3221582" lon="5.0617818">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="capacity" v="18"/>
+        <tag k="name" v="Boulevard de Strasbourg"/>
+        <tag k="network" v="vélodi"/>
+    </node>
+    <node id="1784913443" version="3" timestamp="2013-04-11T08:03:31Z" uid="338211" user="Dlareg" changeset="15686378" lat="47.3240466" lon="5.0447756">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="name" v="Cyclable"/>
+    </node>
+    <node id="2027850491" version="1" timestamp="2012-11-23T10:25:27Z" uid="878518" user="Ky-Gaï" changeset="13996920" lat="47.3219466" lon="5.0701441">
+        <tag k="amenity" v="bicycle_rental"/>
+        <tag k="name" v="Velodi - Hôpital Bocage - Maternité"/>
+    </node>
+</osm>
