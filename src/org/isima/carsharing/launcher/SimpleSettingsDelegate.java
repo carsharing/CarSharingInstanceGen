@@ -96,7 +96,7 @@ public class SimpleSettingsDelegate implements SettingsDelegate {
 
     @Override
     public String getOtpServerURL() {
-        return "localhost:8080";
+        return "http://localhost:8080/otp-rest-servlet/plan";
     }
 
     @Override
