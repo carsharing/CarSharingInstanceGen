@@ -11,7 +11,7 @@
 	Launch config
 		logDirectory = C:\Users\Hicham\Documents\NetBeansProjects\CarSharing Instance Generator\test\DefaultLogDir
 		logLevel = ALL
-		inputFile = C:\Users\Hicham\Desktop\PFA 3 bis\data\bicycle-rental-dijon.xml
+		inputFile = C:\Users\Hicham\Documents\NetBeansProjects\CarSharing Instance Generator\test\input.xml
 		outputDirectory = C:\Users\Hicham\Documents\NetBeansProjects\CarSharing Instance Generator\test
 		configFile = C:\Users\Hicham\Documents\NetBeansProjects\CarSharing Instance Generator\test\conf.properties
 		otpServerURL = http://localhost:8080/otp-rest-servlet/plan
