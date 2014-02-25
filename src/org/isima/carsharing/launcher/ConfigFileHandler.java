@@ -153,7 +153,7 @@ public class ConfigFileHandler {
                 return Level.INFO;
             case "warning":
                 return Level.WARNING;
-            case "sever":
+            case "severe":
                 return Level.SEVERE;
             default:
                 return null;
